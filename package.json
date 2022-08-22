@@ -2,6 +2,7 @@
   "name": "wpr281_project",
   "version": "1.0.0",
   "main": "loginButton.js",
+  "type": "module",
   "dependencies": {
     "ansi-regex": "^5.0.1",
     "ansi-styles": "^4.3.0",
