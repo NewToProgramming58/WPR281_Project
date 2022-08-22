@@ -1,7 +1,6 @@
 {
   "name": "wpr281_project",
   "version": "1.0.0",
-  "description": "",
   "main": "loginButton.js",
   "dependencies": {
     "ansi-regex": "^5.0.1",
@@ -76,5 +75,6 @@
   "bugs": {
     "url": "https://github.com/NewToProgramming58/WPR281_Project/issues"
   },
-  "homepage": "https://github.com/NewToProgramming58/WPR281_Project#readme"
+  "homepage": "https://github.com/NewToProgramming58/WPR281_Project#readme",
+  "description": ""
 }

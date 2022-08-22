@@ -6,33 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="loginStyle.css">
-    <script src="loginButton.js" type="module"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-      
-      
-       // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyDDEps9qF7GW7hi2zwRKPJmV0yZ9o4ZB78",
-          authDomain: "wpr281-firebase.firebaseapp.com",
-          projectId: "wpr281-firebase",
-          storageBucket: "wpr281-firebase.appspot.com",
-          messagingSenderId: "158495166071",
-          appId: "1:158495166071:web:7662f43f404a220de34072",
-          measurementId: "G-LTEW9G5J3X"
-        };
-      
-      
-      
-       // Initialize Firebase
-        const firebaseApp = initializeApp(firebaseConfig);
-      </script>
 </head>
 <body class = "bg-color">
 
@@ -67,10 +40,32 @@
             
              <label for="" class = "passWord">Forgot Password?</label>
             <li>
-                <input type="submit" name = "password" value = "Login" class = "loginBtn" onclick = "login()">
+                <input id="loginBtn" type="submit" value = "Login">              
             </li>
         </ol>
     </form>
   </section>  
+  <script type="module" src="loginButton.js"></script>  
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDDILlD6Z4GKEV1j_kN7NDYssWZ1GOaUk8",
+      authDomain: "wpr281-project.firebaseapp.com",
+      databaseURL: "https://wpr281-project-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "wpr281-project",
+      storageBucket: "wpr281-project.appspot.com",
+      messagingSenderId: "370488716394",
+      appId: "1:370488716394:web:3d9dc3e6d0e24da11c2e13"
+    };
+  
+    // Initialize Firebase
+    const firebaseApp = initializeApp(firebaseConfig);
+  </script>
+  
 </body>
 </html>

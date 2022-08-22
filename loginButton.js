@@ -1,9 +1,13 @@
-//import { getAuth, signInWithEmailAndPassword } from "firebase/";
-function login(){
-    let email = document.forms["myForm"]["email_field"].value;
-    let pass = document.forms["myForm"]["pass_field"].value;
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-    window.alert(email + " " + pass);
+var button = document.getElementById("loginBtn");
+
+button.onclick = function(){
+    alert("Haai");
+    // let email = document.forms["myForm"]["email_field"].value;
+    // let pass = document.forms["myForm"]["pass_field"].value;
+
+    // window.alert(email + " " + pass);
     // const auth = getAuth(firebaseApp);
     // signInWithEmailAndPassword(auth, email, pass)
     // .then((userCredential) => {
@@ -18,3 +22,4 @@ function login(){
     //     alert(errorMessage);
     // });
 }
+
