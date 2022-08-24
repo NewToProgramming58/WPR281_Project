@@ -14,27 +14,27 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
-let email = "test@example.com"//document.forms["myForm"]["email_field"].value;
-    let pass ='123456' // document.forms["myForm"]["pass_field"].value;
+// let email = "test@example.com"//document.forms["myForm"]["email_field"].value;
+//     let pass ='123456' // document.forms["myForm"]["pass_field"].value;
 
-    console.log(email + " " + pass);
-    const auth = getAuth(firebaseApp);
-    signInWithEmailAndPassword(auth, email, pass)
-    .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        console.log("Logged in");
-        // ...
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-    });
-// var button = document.getElementById("loginBtn");
+//     console.log(email + " " + pass);
+//     const auth = getAuth(firebaseApp);
+//     signInWithEmailAndPassword(auth, email, pass)
+//     .then((userCredential) => {
+//         // Signed in 
+//         const user = userCredential.user;
+//         console.log("Logged in");
+//         // ...
+//     })
+//     .catch((error) => {
+//         const errorCode = error.code;
+//         const errorMessage = error.message;
+//         console.log(errorMessage);
+//     });
+var button = document.getElementById("loginBtn");
 
-// button.onclick = function(){
-//     alert("Haai");
+button.onclick = function(){
+    alert("Haai");
     
-// }
+}
 
