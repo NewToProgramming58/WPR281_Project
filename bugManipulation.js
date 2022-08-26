@@ -15,9 +15,9 @@ function AddBug(){
         alert('Please enter all fields');
     } else {
         //get bugs from storage
-        let bugs = window.localStorage.getItem('bugs');
+        let bugs = JSON.parse(window.localStorage.getItem('bugs'));
         const newbug = {
-            id: Int.parse(bugs[bugs.length - 1]['id']) + 1,
+            id: parseInt(bugs[bugs.length - 1]['id']) + 1,
             issue: issueName,
             priority: issuePriority,
             status: issueStatus,
@@ -40,62 +40,60 @@ function AddBug(){
 function LoadBugs(){
     let arrBugs = JSON.parse(window.localStorage.getItem("bugs"));
 
-    if (arrBugs.length > 0) {}
-    // Create Table from JSON object array
-    let col = [];
-    for (let i = 0; i < arrBugs[0].keys.length; i++)
-    {        
-        col.push(arrBugs[0].keys[i]);
-    }
+    if (arrBugs !== null) {
+        // Create Table from JSON object array
+        let col = [];
+        Object.keys(arrBugs[0]).forEach(function(key) {
+            col.push(key);
+        });
 
-    // Create Table
-    const table = document.createElement("table");
-    table.setAttribute('class', 'BugsTable');
+        // Create Table
+        const table = document.createElement("table");
+        table.setAttribute('class', 'BugsTable');
 
-    // Create table header row using the extracted headers above
-    let tr = table.insertRow(-1); // table row
-    tr.setAttribute('class', 'colour3');
+        // Create table header row using the extracted headers above
+        let tr = table.insertRow(-1); // table row
+        tr.setAttribute('class', 'colour3');
 
-    for (let i = 0; i < col.length; i++) {
-        let th = document.createElement("th");      // table header.
-        th.innerHTML = col[i];
-        tr.appendChild(th);
-    }
-
-    // add json data to the table as rows.
-    for (let i = 0; i < arrBugs.length; i++) {
-
-        tr = table.insertRow(-1);
-
-        if (i % 2 == 0)
-        {
-            tr.setAttribute('class', 'colour1');
-        }
-        else
-        {
-            tr.setAttribute('class', 'colour2');
+        for (let i = 0; i < col.length; i++) {
+            let th = document.createElement("th");      // table header.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
         }
 
-        for (key in arrBugs[i])
-        {
-            if (jsonParsedArray.hasOwnProperty(key)) {
+        // add json data to the table as rows.
+        for (let i = 0; i < arrBugs.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            if (i % 2 == 0)
+            {
+                tr.setAttribute('class', 'colour1');
+            }
+            else
+            {
+                tr.setAttribute('class', 'colour2');
+            }
+
+            for (key in arrBugs[i])
+            {            
                 let tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = jsonParsedArray[key];
+                tabCell.innerHTML = arrBugs[i][key];
 
-                if (jsonParsedArray[key] == 'High')
+                if (arrBugs[i][key] == 'High')
                     tabCell.setAttribute('style', 'background-color:red');
-                else if (jsonParsedArray[key] == 'Medium')
+                else if (arrBugs[i][key] == 'Medium')
                         tabCell.setAttribute('style', 'background-color:yellow');
-                else if (jsonParsedArray[key] == 'Low')
-                    tabCell.setAttribute('style', 'background-color:green');
+                else if (arrBugs[i][key] == 'Low')
+                    tabCell.setAttribute('style', 'background-color:green');          
             }
         }
-    }
 
-    // Now, add the newly created table with json data, to a container.
-    const divShowData = document.getElementById('showBugs');
-    divShowData.innerHTML = "";
-    divShowData.appendChild(table);
+        // Now, add the newly created table with json data, to a container.
+        const divShowData = document.getElementById('showBugs');
+        divShowData.innerHTML = "";
+        divShowData.appendChild(table);
+    }
 }
 
 function EditBug(){
