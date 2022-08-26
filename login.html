@@ -6,45 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="loginStyle.css">
+    <script type="text/javascript" src="login.js"></script>
+    </script>
 </head>
 <body class = "bg-color">
-
-    <!-- <section class = "wrapper">
-        <h1 class = "label"> User Login
-
-        </h1>
-        <form action="">
-            <fieldset>
-                <ol>
-                    <li></li>
-                </ol>
-            </fieldset>
-        </form>
-    </section> -->
    
   <section class = "Wrapper">
     <h1>Login</h1>
-    <form method = "post" name = "myForm">
+    <form id="myForm">
         <ol>
-            <li class = "txt-field">
-                <input type="text" id="email_field" name = "Uname" class = "input" placeholder="" required>
+            <li class = "txt-field" class = "hidden">
+                <input type="text" id="username" class="input" placeholder="" required>
                 <label for="Uname">Username</label>
                 <span></span>
             </li>
 
-            <li class = "txt-field">
-                <input type="password" id="pass_field" name = "password" class = "input" placeholder="" required>
+            <li class = "txt-field" class = "hidden">
+                <input type="password" id="password" class="input" placeholder="" required>
                 <label for="">Password</label>
                 <span></span>
             </li>
-            
-             <label for="" class = "passWord">Forgot Password?</label>
             <li>
-                <input id="loginBtn" type="submit" value = "Login">              
+                <input type="submit" name ="password" value ="Login" class = "loginBtn">
             </li>
         </ol>
     </form>
   </section>  
-  <script type="module" src="loginButton.js"></script>  
 </body>
 </html>

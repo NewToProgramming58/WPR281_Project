@@ -88,6 +88,8 @@ form .txt-field{
 .txt-field input:valid ~ label{
     top: -5px;
     color: #2691d9;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .txt-field input:focus ~ span::before,
@@ -120,3 +122,5 @@ input[type = "submit"]:hover{
     border-color: #1d6ca0 ;
     transition: .5s;
 }
+.hidden
+ { font-size: 0; }

@@ -1,0 +1,197 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The bug tracker site</title>
+    <!--Boxicons link-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="MainFormStyle.css">
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+    <section class="Wrapper-Main">
+        <!--Might do the heading, might not so just commented it out for now-->
+        <header>
+            <h1>Welcome to the bug tracking site!</h1>
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="" class = "logo">
+                        <img src="Images/Bug tracker icon.webp" alt="BugTracker.JPG" srcset="">
+                        <span class="nav-item">Bug-Tracker</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#MemberSection">
+                        <i class='bx bxs-user-circle'></i>
+                        <span class="nav-item">Members</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#BugsSection">
+                        <i class='bx bxs-bug'></i>
+                        <span class="nav-item">Bugs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#ProjectSection">
+                        <i class='bx bxs-check-square'></i>
+                        <span class="nav-item">Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./readme.html">
+                        <i class='bx bxs-check-square'></i>
+                        <span class="nav-item">ReadMe File</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="login.html" class = "logOut">
+                        <i class='bx bx-log-out'></i>
+                        <span class="nav-item">Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="Container">
+            <section id="MemberSection">
+                <div id="showData">
+                    <!-- TABLE -->
+                </div>
+            </section>
+            <section id="BugsSection">
+                <form id="bugForm">
+                    <div class="one">
+                        <fieldset class="field1">
+                            <ol>
+                                <li>
+                                    <label for="IssueName">Issue Name:</label>
+                                    <input type="text" name="IssueName" id="IssueName">
+                                </li>
+                                <li>
+                                    <label for="Status">Issue Status:</label>
+                                    <select name="Issue Status" id="IssueStatus" class="SoftBorder, width">
+                                        <option value="">---Options---</option>
+                                        <option value="Open">Open</option>
+                                        <option value="Closed">Closed</option>
+                                        <option value="Overdue">Overdue</option> 
+                                    </select>
+                                </li>
+                                <li>
+                                    <label for="Identifier">Identifier:</label>
+                                    <input type="text" name="Identifier" id="Identifier">
+                                </li>
+                                <li>
+                                    <label for="Date when identified">Date when idenfied:</label>
+                                    <input type="date" name="Date when identified" id="DateIdentified">
+                                </li>
+                                <li>
+                                    <label for="Assigned to">Assigned to</label>
+                                    <input type="text" name="Assigned to" id="AssignedTo">
+                                </li>
+                            </ol>
+                            
+                        </fieldset>
+                        <fieldset class="field2">
+                            <ol>
+                                <li>
+                                    <label for="Issue Priority">Issue Priority:</label>
+                                    <select name="Issue Priority" id="IssuePriority" class="SoftBorder, width">
+                                        <option value="">---Options---</option>
+                                        <option value="High" class="Red">High</option>
+                                        <option value="Medium" class="Yellow">Medium</option>
+                                        <option value="Low" class="Green">Low</option> 
+                                    </select>
+                                </li>
+                                <li>
+                                    <label for="Issue Descp">Issue Descp:</label>
+                                    <input type="text" name="Issue Descp" id="IssueDescp">
+                                </li>
+                                <li>
+                                    <label for="Target completion date">Target completion date:</label>
+                                    <input type="date" name="Target completion date" id="TargetCompDate">
+                                </li>
+                                <li>
+                                    <label for="Actual completion date">Actual completion date:</label>
+                                    <input type="date" name="Actual completion date" id="ActualCompDate">
+                                </li>
+                                <li>
+                                    <label for="Project">Projects:</label>
+                                    <select name="Project" id="projects" class="SoftBorder, width">
+                                        <option value="">---Options---</option>
+                                        <option value="High">PJ01</option>
+                                        <option value="Medium">PRJO2</option>
+                                    </select>
+                                </li>
+                            </ol>
+                        </fieldset>
+                        <button class="button1" onclick="AddBug()">Add</button>
+                        <button class="button2" onclick="EditBug()">Edit</button>
+                        <button class="button3" onclick="RemoveBug()">Remove</button>
+                    </div>  
+                </form>
+                <!--<div class="two">
+                    <table class="BugsTable">
+                        <tr class="colour3">
+                            <th>Issue Name</th>
+                            <th>Issue Priority</th>
+                            <th>Issue Status</th>
+                            <th>Issue Desc.</th>
+                            <th>Identifier</th>
+                            <th>Target Comp. Date</th>
+                            <th>Date Identified</th>
+                            <th>Actual Comp. Date</th>
+                            <th>Assigned To</th>
+                        </tr>
+                    </table>
+                </div>-->
+                <div id="showBugs">
+                    <!-- TABLE -->
+                </div>
+            </section>
+            <section id="ProjectSection">
+                <div id="showProjects">
+                    <!-- TABLE -->
+                </div>
+            </section>
+            <section id="LogoutSection">
+                <h1>Section 6</h1>
+                <div id="TestMD">
+                    <!-- MD -->
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- <script src="MainForm.php"></script> -->
+</body>
+</html>
+
+<!--Tried something-->
+    <!-- <div class="div1">
+        <header class="heading1">
+            <section>
+                <h1>Welcome to our first bug tracker app!</h1>
+            </section>
+            <logo>
+                <img src="Images/Bug tracker icon.webp" height="100px" width="100px" class="center" alt="BugImage">
+            </logo>
+        </header>
+    </div>
+    <div class="border">
+
+    </div>
+    <Space height="100px" width="100px"></Space>
+    <section class="Main-wrapper">
+      <section class="nav-menu">
+        <ul>
+            <li><a class="active" href="">Bug-Tracker App</a></li>
+            <li><a href="#destination1">Members</a></li>
+            <li><a href="#destination2">Bugs</a></li>
+            <li><a href="#destination3">Edit Bugs</a></li>
+            <li><a href="#destination4">Summary</a></li>
+            <li><a href="#destination5">Projects</a></li>
+        </ul>
+      </section>
+    </section> -->
