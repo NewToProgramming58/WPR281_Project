@@ -1,6 +1,6 @@
-let bugTableID = 0;
+let bugTableID = -1;
 let rowPreviousStyle;
-function AddBug(){
+function AddBug(edit){
     //Get values for new bug
     var issueName = document.getElementById('IssueName').value;
     var issuePriority = document.getElementById('IssuePriority').value;
@@ -34,11 +34,31 @@ function AddBug(){
             assignedTo: assignedTo,
         }
         //add bug to array
-        bugs.push(newbug);
-        //store array again
-        window.localStorage.setItem('bugs', JSON.stringify(bugs));
-
-        LoadBugs();
+        if (edit == true) {
+            if (bugTableID > 0) {
+                let length = bugs.length;
+                let i = -1;
+                let bugExists = false;
+                while (i < length && !bugExists) {
+                    i++;
+                    if (bugs[i]['id'] == bugTableID) {
+                        bugExists = true; 
+                        newbug["id"] = bugTableID;        
+                        console.log(newbug);
+                        bugs[i] = newbug;
+                    }
+                }
+                window.localStorage.setItem('bugs', JSON.stringify(bugs));
+                LoadBugs();
+            } else {
+                alert("Select a bug first");
+            } 
+        } else {    
+            bugs.push(newbug);
+            //store array again
+            window.localStorage.setItem('bugs', JSON.stringify(bugs));
+            LoadBugs();
+        }
     }
 }
 
@@ -99,6 +119,16 @@ function LoadBugs(){
           for (var i = 0; i < table.rows.length; i++) {
             table.rows[i].onclick = function() {
                 bugTableID = this.childNodes[0].innerHTML;
+                document.getElementById('IssueName').value = this.childNodes[1].innerHTML;
+                document.getElementById('IssuePriority').value = this.childNodes[2].innerHTML;
+                document.getElementById('IssueStatus').value = this.childNodes[3].innerHTML;
+                document.getElementById('IssueDescp').value = this.childNodes[4].innerHTML;
+                document.getElementById('Identifier').value = this.childNodes[5].innerHTML;
+                document.getElementById('TargetCompDate').value = this.childNodes[6].innerHTML;
+                document.getElementById('DateIdentified').value = this.childNodes[7].innerHTML;
+                document.getElementById('ActualCompDate').value = this.childNodes[8].innerHTML;
+                document.getElementById('AssignedTo').value = this.childNodes[9].innerHTML;
+            
             };
           }
         }
@@ -114,55 +144,27 @@ function LoadBugs(){
     }
 }
 
-function EditBug(){
-    var issueName = document.getElementById('IssueName').value;
-    var issuePriority = document.getElementById('IssuePriority').value;
-    var issueStatus = document.getElementById('IssueStatus').value;
-    var issueDescription = document.getElementById('IssueDescp').value;
-    var identifier = document.getElementById('Identifier').value;
-    var targetCompletionDate = document.getElementById('TargetCompDate').value;
-    var dateIdentified = document.getElementById('DateIdentified').value;
-    var actualCompletionDate = document.getElementById('ActualCompDate').value;
-    var assignedTo = document.getElementById('AssignedTo').value;
-
-    const bug = {
-        issue: issueName,
-        priority: issuePriority,
-        status: issueStatus,
-        description: issueDescription,
-        identifier: identifier,
-        targetCompDate: targetCompletionDate,
-        dateIdentified: dateIdentified,
-        actualCompDate: actualCompletionDate,
-        assignedTo: assignedTo,
-    }
-
-    // Check if the value does exist
-    if (localStorage.getItem('BUG' + identifier) != null)
-    {
-        window.localStorage.setItem('BUG' + identifier, JSON.stringify(bug));  
-    }
-    //converting object to string
-
-    LoadBugs();
-}
-
 function RemoveBug(){   
-    let bugs = JSON.parse(window.localStorage.getItem('bugs'));
-    let length = bugs.length;
-    if (length > 1) {
-    let i = -1;
-        let bugExists = false;
-        while (i < length && !bugExists) {
-            i++;
-            if (bugs[i]['id'] == bugTableID) {
-                bugExists = true;            
-                bugs.splice(i, 1);
+    if (bugTableID > 0) {
+        let bugs = JSON.parse(window.localStorage.getItem('bugs'));
+        let length = bugs.length;
+        if (length > 1) {
+        let i = -1;
+            let bugExists = false;
+            while (i < length && !bugExists) {
+                i++;
+                if (bugs[i]['id'] == bugTableID) {
+                    bugExists = true;            
+                    bugs.splice(i, 1);
+                }
             }
+            window.localStorage.setItem('bugs', JSON.stringify(bugs));
+        } else {
+            window.localStorage.removeItem('bugs');
         }
-        window.localStorage.setItem('bugs', JSON.stringify(bugs));
+        LoadBugs();
+        bugTableID = -1;
     } else {
-        window.localStorage.removeItem('bugs');
+        alert("Select a bug first");
     }
-    LoadBugs();
 }
