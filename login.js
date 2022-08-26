@@ -11,7 +11,7 @@ function login(){
     } else {
         while (i < length && !userExists) {
             i++;
-            if (users[i]['username'] === username) {
+            if (users[i]['username'] === username || users[i]['email'] === username) {
                 userExists = true;            
                 if (users[i]['password'] === pass) {
                     var location = window.location.href;

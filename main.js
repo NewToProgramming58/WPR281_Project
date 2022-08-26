@@ -106,6 +106,7 @@ function LoadProjects(){
 }
 
 function AddBug(){
+    //Get values for new bug
     var issueName = document.getElementById('IssueName').value;
     var issuePriority = document.getElementById('IssuePriority').value;
     var issueStatus = document.getElementById('IssueStatus').value;
@@ -115,39 +116,37 @@ function AddBug(){
     var dateIdentified = document.getElementById('DateIdentified').value;
     var actualCompletionDate = document.getElementById('ActualCompDate').value;
     var assignedTo = document.getElementById('AssignedTo').value;
+    //get bugs from storage
+    alert(issuePriority);
+    if (issueName === '' || issuePriority === '' || issueStatus === '' || issueDescription === '' || identifier === ''
+    || targetCompletionDate === '' || dateIdentified === '' || actualCompletionDate === '' || assignedTo === '') {
+        alert('Please enter all fields');
+    } else {
+        let bugs = window.localStorage.getItem('bugs');
+        const newbug = {
+            id: Int.parse(bugs[bugs.length - 1]['id']) + 1,
+            issue: issueName,
+            priority: issuePriority,
+            status: issueStatus,
+            description: issueDescription,
+            identifier: identifier,
+            targetCompDate: targetCompletionDate,
+            dateIdentified: dateIdentified,
+            actualCompDate: actualCompletionDate,
+            assignedTo: assignedTo,
+        }
+        //add bug to array
+        bugs.push(newbug);
+        //store array again
+        window.localStorage.setItem('bugs', JSON.stringify(bugs));
 
-    const bug = {
-        issue: issueName,
-        priority: issuePriority,
-        status: issueStatus,
-        description: issueDescription,
-        identifier: identifier,
-        targetCompDate: targetCompletionDate,
-        dateIdentified: dateIdentified,
-        actualCompDate: actualCompletionDate,
-        assignedTo: assignedTo,
+        LoadBugs();
     }
-
-    // Check to see if the value doesn't exist.
-    if (localStorage.getItem('BUG' + identifier) == null)
-    {
-        window.localStorage.setItem('BUG' + identifier, JSON.stringify(bug));  
-        //converting object to string
-    }
-
-    LoadBugs();
 }
 
 function LoadBugs(){
-    let arrBugs = [];
+    let arrBugs = JSON.parse(window.localStorage.getItem("bugs"));
 
-    for(let i = 0; i < localStorage.length; i++) {
-        var value = localStorage.key(i);
-
-        if (value.substring(0, value.indexOf('G')) == "BU"){
-            arrBugs.push(localStorage.getItem(value));
-        }
-    }
 
     // Create Table from JSON object array
     let col = [];
