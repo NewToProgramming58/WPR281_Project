@@ -44,7 +44,6 @@ function AddBug(edit){
                     if (bugs[i]['id'] == bugTableID) {
                         bugExists = true; 
                         newbug["id"] = bugTableID;        
-                        console.log(newbug);
                         bugs[i] = newbug;
                     }
                 }
