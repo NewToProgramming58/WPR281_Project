@@ -1,3 +1,5 @@
+let bugTableID = 0;
+let rowPreviousStyle;
 function AddBug(){
     //Get values for new bug
     var issueName = document.getElementById('IssueName').value;
@@ -16,8 +18,11 @@ function AddBug(){
     } else {
         //get bugs from storage
         let bugs = JSON.parse(window.localStorage.getItem('bugs'));
+        if (bugs == null) {
+            bugs = [];  
+        }
         const newbug = {
-            id: parseInt(bugs[bugs.length - 1]['id']) + 1,
+            id: bugs.length > 0 ? parseInt(bugs[bugs.length - 1]['id']) + 1 : 1,
             issue: issueName,
             priority: issuePriority,
             status: issueStatus,
@@ -39,8 +44,8 @@ function AddBug(){
 
 function LoadBugs(){
     let arrBugs = JSON.parse(window.localStorage.getItem("bugs"));
-
     if (arrBugs !== null) {
+        let arrBugs = JSON.parse(window.localStorage.getItem("bugs"));
         // Create Table from JSON object array
         let col = [];
         Object.keys(arrBugs[0]).forEach(function(key) {
@@ -53,10 +58,11 @@ function LoadBugs(){
 
         // Create table header row using the extracted headers above
         let tr = table.insertRow(-1); // table row
+
         tr.setAttribute('class', 'colour3');
 
         for (let i = 0; i < col.length; i++) {
-            let th = document.createElement("th");      // table header.
+            let th = document.createElement("th");// table header.
             th.innerHTML = col[i];
             tr.appendChild(th);
         }
@@ -87,12 +93,24 @@ function LoadBugs(){
                 else if (arrBugs[i][key] == 'Low')
                     tabCell.setAttribute('style', 'background-color:green');          
             }
+          
+        }
+        if (table) {
+          for (var i = 0; i < table.rows.length; i++) {
+            table.rows[i].onclick = function() {
+                bugTableID = this.childNodes[0].innerHTML;
+            };
+          }
         }
 
         // Now, add the newly created table with json data, to a container.
         const divShowData = document.getElementById('showBugs');
         divShowData.innerHTML = "";
         divShowData.appendChild(table);
+    }
+    else {
+        const title = document.createElement("title");
+        title.title = "No current bugs"
     }
 }
 
@@ -129,14 +147,22 @@ function EditBug(){
     LoadBugs();
 }
 
-function RemoveBug(){
-    var identifier = document.getElementById('Identifier').value;
-
-    // Check if the value does exist
-    if (localStorage.getItem('BUG' + identifier) != null)
-    {
-        window.localStorage.removeItem('BUG' + identifier);  
+function RemoveBug(){   
+    let bugs = JSON.parse(window.localStorage.getItem('bugs'));
+    let length = bugs.length;
+    if (length > 1) {
+    let i = -1;
+        let bugExists = false;
+        while (i < length && !bugExists) {
+            i++;
+            if (bugs[i]['id'] == bugTableID) {
+                bugExists = true;            
+                bugs.splice(i, 1);
+            }
+        }
+        window.localStorage.setItem('bugs', JSON.stringify(bugs));
+    } else {
+        window.localStorage.removeItem('bugs');
     }
-
     LoadBugs();
 }
