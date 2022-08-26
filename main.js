@@ -116,12 +116,12 @@ function AddBug(){
     var dateIdentified = document.getElementById('DateIdentified').value;
     var actualCompletionDate = document.getElementById('ActualCompDate').value;
     var assignedTo = document.getElementById('AssignedTo').value;
-    //get bugs from storage
-    alert(issuePriority);
+    
     if (issueName === '' || issuePriority === '' || issueStatus === '' || issueDescription === '' || identifier === ''
     || targetCompletionDate === '' || dateIdentified === '' || actualCompletionDate === '' || assignedTo === '') {
         alert('Please enter all fields');
     } else {
+        //get bugs from storage
         let bugs = window.localStorage.getItem('bugs');
         const newbug = {
             id: Int.parse(bugs[bugs.length - 1]['id']) + 1,
@@ -147,22 +147,12 @@ function AddBug(){
 function LoadBugs(){
     let arrBugs = JSON.parse(window.localStorage.getItem("bugs"));
 
-
+    if (arrBugs.length > 0) {}
     // Create Table from JSON object array
     let col = [];
-    for (let i = 0; i < arrBugs.length; i++)
+    for (let i = 0; i < arrBugs[0].keys.length; i++)
     {        
-        var jsonParsedArray = JSON.parse(arrBugs[i]);
-
-        if ((i + 1) == 1)
-        {
-            for (key in jsonParsedArray)
-            {
-                if (jsonParsedArray.hasOwnProperty(key)) {
-                    col.push(key);
-                }
-            }
-        }
+        col.push(arrBugs[0].keys[i]);
     }
 
     // Create Table
@@ -193,9 +183,7 @@ function LoadBugs(){
             tr.setAttribute('class', 'colour2');
         }
 
-        var jsonParsedArray = JSON.parse(arrBugs[i]);
-
-        for (key in jsonParsedArray)
+        for (key in arrBugs[i])
         {
             if (jsonParsedArray.hasOwnProperty(key)) {
                 let tabCell = tr.insertCell(-1);
