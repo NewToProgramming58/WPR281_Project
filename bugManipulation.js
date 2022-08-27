@@ -13,7 +13,7 @@ function AddBug(edit){
     var assignedTo = document.getElementById('AssignedTo').value;
     
     if (issueName === '' || issuePriority === '' || issueStatus === '' || issueDescription === '' || identifier === ''
-    || targetCompletionDate === '' || dateIdentified === '' || assignedTo === '') {
+    || targetCompletionDate === '' || dateIdentified === '') {
         alert('Please enter all fields');
     } else {
         //get bugs from storage
