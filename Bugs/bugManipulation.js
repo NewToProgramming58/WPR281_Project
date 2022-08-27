@@ -1,5 +1,4 @@
 let bugTableID = -1;
-let rowPreviousStyle;
 function AddBug(edit){
     //Get values for new bug
     var issueName = document.getElementById('IssueName').value;

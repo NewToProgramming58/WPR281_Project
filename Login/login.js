@@ -14,9 +14,7 @@ function login(){
             if (users[i]['username'] === username || users[i]['email'] === username) {
                 userExists = true;            
                 if (users[i]['password'] === pass) {
-                    var location = window.location.href;
-                    var directoryPath = location.substring(0, location.lastIndexOf("/") + 1);
-                    window.location = directoryPath + "MainForm.html";
+                    window.location.href = '../Main/MainForm.html';
                 } else {
                     document.getElementById("password").value = "";
                     alert("Incorrect password!");
