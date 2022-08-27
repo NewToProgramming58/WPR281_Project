@@ -37,7 +37,7 @@ window.onload = function(){ // Ensures the page is loaded before functions are e
     }
     
     document.getElementById('welcome').innerHTML = `Welcome ${currentUser.name} to the bug tracking site!`;
-    
+    document.getElementById('pfp').src = currentUser.profilePicture;
     // MARKDOWN CODE - NOT WORKING YET, JS GIVING ISSUES!
     // md_content = "Hello.\n\n* This is markdown.\n* It is fun\n* Love it or leave it."
     // html_content = markdown.toHTML( md_content );

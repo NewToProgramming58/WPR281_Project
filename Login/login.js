@@ -30,6 +30,7 @@ function login(){
 }
 
 window.onload = function(){ //ensures the page is loaded before functions are executed.
+    localStorage.clear();
     let arrUsers = JSON.parse(window.localStorage.getItem("users"));
     if (arrUsers == null) {
         let users = 
