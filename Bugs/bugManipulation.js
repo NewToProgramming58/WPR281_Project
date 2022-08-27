@@ -144,24 +144,27 @@ function LoadBugs(){
 
 function RemoveBug(){   
     if (bugTableID > 0) {
+        print(bugTableID);
         let bugs = JSON.parse(window.localStorage.getItem('bugs'));
-        let length = bugs.length;
-        if (length > 1) {
-        let i = -1;
-            let bugExists = false;
-            while (i < length && !bugExists) {
-                i++;
-                if (bugs[i]['id'] == bugTableID) {
-                    bugExists = true;            
-                    bugs.splice(i, 1);
+        if (bugs !== null) {
+            let length = bugs.length;
+            if (length > 1) {
+            let i = -1;
+                let bugExists = false;
+                while (i < length && !bugExists) {
+                    i++;
+                    if (bugs[i]['id'] == bugTableID) {
+                        bugExists = true;            
+                        bugs.splice(i, 1);
+                    }
                 }
+                window.localStorage.setItem('bugs', JSON.stringify(bugs));
+            } else {
+                window.localStorage.removeItem('bugs');
             }
-            window.localStorage.setItem('bugs', JSON.stringify(bugs));
-        } else {
-            window.localStorage.removeItem('bugs');
+            LoadBugs();
+            bugTableID = -1;
         }
-        LoadBugs();
-        bugTableID = -1;
     } else {
         alert("Select a bug first");
     }
