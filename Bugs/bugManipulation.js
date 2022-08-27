@@ -128,7 +128,17 @@ function LoadBugs(){
                 document.getElementById('DateIdentified').value = this.childNodes[7].innerHTML;
                 document.getElementById('ActualCompDate').value = this.childNodes[8].innerHTML;
                 document.getElementById('AssignedTo').value = this.childNodes[9].innerHTML;
-                document.getElementById('projects').value = this.childNodes[10].innerHTML;;
+                document.getElementById('projects').value = this.childNodes[10].innerHTML;
+                /*
+                // Is there a way to get a global array with all the IDs above? Then you iterate through idArr like
+                // Or even add it to localStorage with key 'tableid'?
+                // If it's a good idea and we're finished before Sunday evening, I'll do it
+                const idArr = [];
+                idArr.push[document.getId] // Smth like this
+                for(let j = 0; j < idArr.length; j++)
+                    document.getElementById(idArr[j]).value = this.childNodes[j].innerHTML; 
+                // Replaces code in table.rows[i].onclick func
+                */
             };
           }
         }
