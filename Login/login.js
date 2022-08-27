@@ -10,7 +10,6 @@ function login(){
     } else {
         while (i < length && !userExists) {
             i++;
-            console.log(users)
             if (users[i]['username'] === username || users[i]['email'] === username.toLowerCase()) {
                 userExists = true;            
                 if (users[i]['password'] === pass) {
