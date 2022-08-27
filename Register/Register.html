@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Login/CSS/loginStyle.css">
+    <script type="text/javascript" src="register.js"></script>
+    </script>
+</head>
+<body class = "bg-color">
+  <section class = "Wrapper">
+    <h1>Register</h1>
+    <form id="myForm">
+        <ol>
+            <li class = "txt-field" class = "hidden">
+                <input type="text" id="username" class="input" placeholder="" required>
+                <label for="Uname">Username</label>
+                <span></span>
+            </li>
+
+            <li class = "txt-field" class = "hidden">
+                <input type="text" id="email" class="input" placeholder="" required>
+                <label for="Uname">Email</label>
+                <span></span>
+            </li>            
+
+            <li class = "txt-field" class = "hidden">
+                <input type="text" id="name" class="input" placeholder="" required>
+                <label for="Uname">Name</label>
+                <span></span>
+            </li>  
+            <li class = "txt-field" class = "hidden">
+                <input type="text" id="surname" class="input" placeholder="" required>
+                <label for="Uname">Surname</label>
+                <span></span>
+            </li>  
+            <li class = "txt-field" class = "hidden">
+                <input type="password" id="password" class="input" placeholder="" required>
+                <label for="">Password</label>
+                <span></span>
+            </li>
+            <li class = "txt-field" class = "hidden">
+                <input type="password" id="passwordValidate" class="input" placeholder="" required>
+                <label for="">Re-enter password</label>
+                <span></span>
+            </li>
+            <li>
+                <input type="button" value ="Register" onclick="register()">
+            </li>
+            <li>
+                <input type="button" value ="Cancel" onclick="login()">
+            </li>
+        </ol>
+    </form>
+  </section>  
+</body>
+</html>
