@@ -152,7 +152,7 @@ function LoadBugs(){
         const title = document.createElement("title");
         title.title = "No current bugs"
     }
-    HighlightRow(table) // Where is this supposed to go? LoadBugs() goes into window.onload, so is this fine here?
+    //HighlightRow(table) // Where is this supposed to go? LoadBugs() goes into window.onload, so is this fine here?
 }
 function HighlightRow(table) {
     var cells = table.getElementsByTagName('td');

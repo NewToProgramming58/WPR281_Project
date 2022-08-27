@@ -14,6 +14,7 @@ function login(){
                 userExists = true;            
                 if (users[i]['password'] === pass) {
                     window.location.href = '../Main/MainForm.html';
+                    window.localStorage.setItem("loggedInUser",users[i]['id']);
                 } else {
                     document.getElementById("password").value = "";
                     alert("Incorrect password!");
@@ -39,7 +40,8 @@ window.onload = function(){ //ensures the page is loaded before functions are ex
                 name: 'Tendai',
                 surname: 'Mkwaira',
                 email: 'mkwaira.t@belgiumcampus.ac.za',
-                password: '123'
+                password: '123',
+                profilePicture: '../Images/default.jpg',
             },            
             {// SETUP PEOPLE
                 id: '2',
@@ -47,7 +49,8 @@ window.onload = function(){ //ensures the page is loaded before functions are ex
                 name: 'John',
                 surname: 'Doe',
                 email: 'john.doe@gmail.com',
-                password: '123'
+                password: '123',
+                profilePicture: '../Images/default.jpg',
             },
             {
                 id: '3',
@@ -55,7 +58,8 @@ window.onload = function(){ //ensures the page is loaded before functions are ex
                 name: 'Jane',
                 surname: 'Doe',
                 email: 'jane.doe@gmail.com',
-                password: '123'
+                password: '123',
+                profilePicture: '../Images/default.jpg',
             }
         ]
         window.localStorage.setItem('users', JSON.stringify(users)); 

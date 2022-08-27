@@ -32,7 +32,8 @@ function register() {
                 name: name,
                 surname: surname,
                 email: email,
-                password: password
+                password: password,
+                profilePicture: '../Images/default.jpg',
             }
             arrUsers.push(user);
             window.localStorage.setItem("users", JSON.stringify(arrUsers));
