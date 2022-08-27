@@ -131,10 +131,10 @@ function LoadBugs(){
                 document.getElementById('projects').value = this.childNodes[10].innerHTML;
                 /*
                 // Is there a way to get a global array with all the IDs above? Then you iterate through idArr like
-                // Or even add it to localStorage with key 'tableid'?
+                // Or even add it to localStorage with key 'tableids' / 'bugids' etc.?
                 // If it's a good idea and we're finished before Sunday evening, I'll do it
                 const idArr = [];
-                idArr.push[document.getId] // Smth like this
+                idArr.push[document.getId] // Smth like this, or manually add?
                 for(let j = 0; j < idArr.length; j++)
                     document.getElementById(idArr[j]).value = this.childNodes[j].innerHTML; 
                 // Replaces code in table.rows[i].onclick func
@@ -151,6 +151,30 @@ function LoadBugs(){
     else {
         const title = document.createElement("title");
         title.title = "No current bugs"
+    }
+    HighlightRow(table) // Where is this supposed to go? LoadBugs() goes into window.onload, so is this fine here?
+}
+function HighlightRow(table) {
+    var cells = table.getElementsByTagName('td');
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cellVals = cells[i];
+        // onclick event highlights
+        cellVals.onclick = function () {
+            // Get row id for cell
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            var rowId = this.parentNode.rowIndex;
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            var selectedRow = table.getElementsByTagName('tr')[rowId];
+            selectedRow.style.backgroundColor = "aliceblue";
+            selectedRow.className += " selected"; // Don't understand this; will keep searching
+            msg = 'The ID of the bug is: ' + selectedRow.cells[0].innerHTML;
+            msg += '\nThe cell value is: ' + this.innerHTML;
+            console.log(msg);
+        }
     }
 }
 
