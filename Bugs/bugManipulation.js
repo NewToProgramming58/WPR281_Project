@@ -9,7 +9,7 @@ function AddBug(edit){
     var targetCompletionDate = document.getElementById('TargetCompDate').value;
     var dateIdentified = document.getElementById('DateIdentified').value;
     var actualCompletionDate = document.getElementById('ActualCompDate').value;
-    var assignedTo = document.getElementById('AssignedTo').value;
+    var assignedTo = document.getElementById('Assignedto').value;
     var project = document.getElementById('projects').value;
     
     if (issueName === '' || issuePriority === '' || issueStatus === '' || issueDescription === '' || identifier === ''
@@ -22,7 +22,7 @@ function AddBug(edit){
             bugs = [];  
         }
         const newbug = {
-            'ID': bugs.length > 0 ? parseInt(bugs[bugs.length - 1]['id']) + 1 : 1,
+            'id': bugs.length > 0 ? parseInt(bugs[bugs.length - 1]['id']) + 1 : 1,
             'Issue': issueName,
             'Priority': issuePriority,
             'Status': issueStatus,
@@ -59,6 +59,7 @@ function AddBug(edit){
             window.localStorage.setItem('bugs', JSON.stringify(bugs));
             LoadBugs();
         }
+        console.log(bugs);
     }
 }
 
