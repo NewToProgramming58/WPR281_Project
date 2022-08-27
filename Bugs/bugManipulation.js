@@ -180,7 +180,6 @@ function HighlightRow(table) {
 
 function RemoveBug(){   
     if (bugTableID > 0) {
-        print(bugTableID);
         let bugs = JSON.parse(window.localStorage.getItem('bugs'));
         if (bugs !== null) {
             let length = bugs.length;
