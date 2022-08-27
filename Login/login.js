@@ -30,6 +30,7 @@ function login(){
 }
 
 window.onload = function(){ //ensures the page is loaded before functions are executed.
+    localStorage.clear();
     let arrUsers = JSON.parse(window.localStorage.getItem("users"));
     if (arrUsers == null) {
         let users = 
@@ -88,28 +89,6 @@ window.onload = function(){ //ensures the page is loaded before functions are ex
         ]
         window.localStorage.setItem('projects', JSON.stringify(projects)); 
     }
-
-    // let bugs = JSON.parse(window.localStorage.getItem("bugs"));
-    // if (bugs == null) {
-    //     // SETUP PROJECTS
-    //     let bugs = 
-    //     [ 
-    //         {
-    //             'ID': 1,
-    //             'Issue': 'bug list',
-    //             'Priority': 'Low',
-    //             'Status': 'High',
-    //             'Description': 'The bug list is not displaying correct',
-    //             'Identified by': 'admin',
-    //             'Target Complete Date': '',
-    //             'Date Identified': dateIdentified,
-    //             'Actual Complete Date': actualCompletionDate,
-    //             'Assigned To': assignedTo,
-    //             'Project': project,
-    //         }
-    //     ]
-    //     window.localStorage.setItem('projects', JSON.stringify(projects)); 
-    // }
 }
 
 function register() {

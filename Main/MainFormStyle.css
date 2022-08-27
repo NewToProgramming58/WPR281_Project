@@ -42,9 +42,6 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-/* body{
-    background: darkslategrey;
-} */
 nav{
     position: fixed;
     top: 0;
@@ -98,7 +95,7 @@ a{
 }
 a:hover{
     background-color: whitesmoke;
-    border-left: 5px solid orangered;
+    border-left: 5px solid cadetblue;
 }
 nav:hover{
     width: 280px;
@@ -109,15 +106,17 @@ nav:hover{
     bottom: 0;
 }
 .Container section{
-    height: 100vh;
+    height: 5000px;
     width: 2000px;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 .Container section{
     background-color: rgb(98, 134, 134);
 }
+/*USER AND BUG TABLES STYLING*/
 .MemberTable{
     position: relative;
     margin-right: 240px;
@@ -160,10 +159,7 @@ nav:hover{
     background-color: cadetblue;
     color: white;
 }
-/* .SoftBorder{
-    border-radius: 5px;
-    border: 1px solid black;
-} */
+/*PRIORITY COLOUR STYLING*/
 .Red{
     background-color: red;
     color: white;
@@ -176,23 +172,16 @@ nav:hover{
     background-color: green;
     color: white;
 }
-/* .colour4{
-    background-color: white;
-} */
+/*BUG SECTION STYLING*/
 .one{
     display: grid;
     grid-template-columns: repeat(2,250px);
     grid-template-rows: max-content;
     grid-gap: 15px;
-    margin-left: 60px;
-    margin-bottom: 80px;
+    margin-bottom: 6px;
+    margin-right: 500px;
 }
-.two{
-    display: grid;
-    grid-template-columns : repeat(1, auto);
-    margin-bottom: 80px;
-}
-
+/*BUG INPUT FORM STYLING*/
 .field1 ol, .field2 ol{
     list-style: none;
 }
@@ -215,154 +204,123 @@ nav:hover{
     border-radius: 5px;
     padding: 5px;
 }
+/*ADD EDIT REMOVE BUTTON STYLING*/
 .button1, .button2, .button3 {
     width: 50%;
     padding: 5px;
     border-radius: 4px;
     font-weight: bold;
 }
-.button1, .button2, .button3{
-    display: inline;
+.button1{
+    position: relative;
+    margin-left: 15px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .Main-wrapper{
-    width: 100%;
-    height: 100%;
-}
-.center{
-    height:8vw;
-    width:8vw;
-    margin-top:3vw;
-    margin-left: 3vw;
-}
-.nav-menu ul{
-    list-style-type: none;
-    margin-top: 12px;
+.button2{
+    position: relative;
     margin-left: 25px;
-    padding: 0;
-    width: 10%;
-    background-color: white;
-
-    /* list-style-type: none;
-    margin-top: 12px;
-    margin-left: 11px;
-    padding: 0px 8px 0px 22px;
-    width: 10%;
-    background-color: white;
-
-    Wanted to do this first but did not work so 
-    just commented it out
-
-.nav-menu li a{
-    display: block;
-    color: #000;
-    padding: 15px 25px;
-    text-decoration: none;
 }
-.nav-menu li a.active{
-    background-color: black;
-    color: white;
-    width: 85px;
-    height: auto;
-    text-align: center;
-    margin-right: 1000px;
+.button3{
+    position: relative;
+    margin-left: 155px;
 }
-.nav-menu li a:hover:not(.active){
+
+/* Summary style section */
+
+.sumTable {
+    border: 1px solid black;
+    margin-top: 1000px;
+    border-collapse: collapse;
+}
+.move{
+    margin-right: 900px;
+    margin-bottom: 3750px;
+}
+
+.sumBtn{
+    margin-left: -10px;
+    padding: 0.5em;
+    margin-bottom: 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    background-color: turquoise;
+    font-weight: bolder;
+    font-size: large;
+}
+.in_Progress{
+    color: black;
+    margin-bottom: 10px;
+}
+.line{
+    border-bottom: 1px solid black;
+    width: 750px; 
+}
+.container_Height{
+    height: 2000px;
+}
+.row_Colors tr:nth-child(odd){
     background-color: whitesmoke;
-    color: orangered;
-}
-.heading1 h1{
-   position: relative;
-   margin-left: 360px;
-}
-.heading1 h1{
-    position:absolute;
-    margin-top: 80px;
-}
-.heading1 h1{
-    padding: 10px 50px 10px 50px;
-    color: black;
-    text-decoration: underline;
-    text-transform:uppercase;
-}
-.div1{
-    background-color:burlywood;
-    padding-bottom: 10px;
-    box-shadow: white;
 
 }
-.border{
-    background-color: black;
-    display: grid;
-    grid-template-rows: 5px;
+.row_Colors tr:nth-child(even){
+    background-color: rgb(185, 185, 185);
 }
-*/
+.remove_Border tr td{
+    border-collapse: collapse;
+}
+.background-color{
+    background-color: rgb(98, 134, 134);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.sumTable tr td{
+    border-collapse: collapse;
+}
 
 
-/*
-NOTE: IGNORE THIS PART
- 
-.nav-menu ol li{
-    list-style: none;
-    padding: 5px;
-    margin-top: 5px;
-    text-align: left;
-    color: black;
-}
-.nav-menu ol li a{
-    text-decoration: none;
-}
-.nav-menu ol li a:hover{
-    background-color:  whitesmoke;
-    color: orangered;
-} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

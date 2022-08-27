@@ -3,14 +3,15 @@ let currentUser;
 function changePFP(){
     let response = window.prompt("Enter url for profile picture","");
     if (response !== null && response !== "") {
+        console.log(response);
         let arrUsers = JSON.parse(window.localStorage.getItem("users"));
         for (let i = 0; i < arrUsers.length; i++) {
             if (arrUsers[i]["id"] == currentUser.id) {
+                console.log(arrUsers[i])
                 arrUsers[i]["profilePicture"] = response;
                 break;
             }
         }
-        console.log(arrUsers);
         window.localStorage.setItem("users", JSON.stringify(arrUsers));
         document.getElementById('profileImage').src = response;
     }
@@ -34,10 +35,10 @@ window.onload = function(){ // Ensures the page is loaded before functions are e
         select.appendChild(opt);
     }
 
-    var selectIdentified = document.getElementById('Identifier');
-    var selectAssigned = document.getElementById('Assignedto');
+    var select = document.getElementById('Identifier');
     let arrUsers = JSON.parse(window.localStorage.getItem("users"));
     let loggedID = window.localStorage.getItem("loggedInUser");
+    console.log(arrUsers);
     for (let i = 0; i < arrUsers.length; i++) {
         if (arrUsers[i]["id"] == loggedID) {
             currentUser = {
@@ -50,14 +51,9 @@ window.onload = function(){ // Ensures the page is loaded before functions are e
         var opt = document.createElement('option');
         opt.value = arrUsers[i]["username"];
         opt.innerHTML = arrUsers[i]["username"];
-        selectIdentified.appendChild(opt);
-
-        var opt = document.createElement('option');
-        opt.value = arrUsers[i]["username"];
-        opt.innerHTML = arrUsers[i]["username"];
-        selectAssigned.appendChild(opt);
+        select.appendChild(opt);
     }
-
+    
     document.getElementById('welcome').innerHTML = `Welcome ${currentUser.name} to the bug tracking site!`;
     document.getElementById('profileImage').src = currentUser.profilePicture;
     // MARKDOWN CODE - NOT WORKING YET, JS GIVING ISSUES!

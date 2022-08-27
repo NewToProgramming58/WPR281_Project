@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The bug tracker site</title>
+    <!--Boxicons link-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="MainFormStyle.css">
+    <link rel="icon" type="image/x-icon" href="/WPR281_Project-main/Images/bug-solid-24.png">
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="../Bugs/bugManipulation.js"></script>
+    <script type="text/javascript" src="../Users/userManipulation.js"></script>
+    <script type="text/javascript" src="../Projects/projectManipulation.js"></script>
+</head>
+<body>
+    <section class="Wrapper-Main">
+        <!--Might do the heading, might not so just commented it out for now-->
+        <header>
+            <ol id="pfp">
+                <li>
+                    <h1 id="welcome">Welcome to the bug tracking site!</h1>
+                </li>
+                <li>
+                    <img id="profileImage" src="../Images/default.jpg" alt="Profile.jpg" onclick="changePFP()">
+                </li>
+            </ol>            
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="" class = "logo">
+                        <img src="../Images/Bug tracker icon.webp" alt="BugTracker.JPG" srcset="">
+                        <span class="nav-item">Bug-Tracker</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="MainForm.html" target="_parent">
+                        <i class='bx bxs-user-circle'></i>
+                        <span class="nav-item">Members</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="BugSection.html" target="_parent">
+                        <i class='bx bxs-bug'></i>
+                        <span class="nav-item">Bugs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ProjectSection.html" target="_self">
+                        <i class='bx bxs-check-square'></i>
+                        <span class="nav-item">Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Summary.html" target="_parent">
+                        <i class='bx bxs-notepad'></i>
+                        <span class="nav-item">Summary</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../readme.html" target="_blank">
+                        <i class='bx bxs-check-square'></i>
+                        <span class="nav-item">ReadMe File</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Login/login.html" class = "logOut">
+                        <i class='bx bx-log-out'></i>
+                        <span class="nav-item">Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="Container">
+            <section id="ProjectSection">
+                <div id="showProjects">
+                    <!-- TABLE -->
+                </div>
+            </section>
+        </div>
+    </section>
+</body>
+</html>
