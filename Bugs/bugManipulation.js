@@ -157,22 +157,22 @@ function LoadBugs(){
 }
 function HighlightRow(table) {
     var cells = table.getElementsByTagName('td');
-    for (var i = 0; i < cells.length; i++) {
-        // Take each cell
+    for(var i = 0; i < cells.length; i++){
+        // Get individual cell
         var cellVals = cells[i];
         // onclick event highlights
         cellVals.onclick = function () {
             // Get row id for cell
             var rowsNotSelected = table.getElementsByTagName('tr');
             var rowId = this.parentNode.rowIndex;
-            for (var row = 0; row < rowsNotSelected.length; row++) {
+            for(let row = 0; row < rowsNotSelected.length; row++){
                 rowsNotSelected[row].style.backgroundColor = "";
                 rowsNotSelected[row].classList.remove('selected');
             }
             var selectedRow = table.getElementsByTagName('tr')[rowId];
             selectedRow.style.backgroundColor = "aliceblue";
             selectedRow.className += " selected"; // Don't understand this; will keep searching
-            msg = 'The ID of the bug is: ' + selectedRow.cells[0].innerHTML;
+            let msg = 'The ID of the bug is: ' + selectedRow.cells[0].innerHTML;
             msg += '\nThe cell value is: ' + this.innerHTML;
             console.log(msg);
         }
@@ -186,11 +186,11 @@ function RemoveBug(){
             let length = bugs.length;
             if (length > 1) {
             let i = -1;
-                let bugExists = false;
-                while (i < length && !bugExists) {
+                let bugContinue = false;
+                while (i < length && bugContinue) {
                     i++;
                     if (bugs[i]['id'] == bugTableID) {
-                        bugExists = true;            
+                        bugContinue = false;            
                         bugs.splice(i, 1);
                     }
                 }
