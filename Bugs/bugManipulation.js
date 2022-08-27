@@ -10,6 +10,7 @@ function AddBug(edit){
     var dateIdentified = document.getElementById('DateIdentified').value;
     var actualCompletionDate = document.getElementById('ActualCompDate').value;
     var assignedTo = document.getElementById('AssignedTo').value;
+    var project = document.getElementById('projects').value;
     
     if (issueName === '' || issuePriority === '' || issueStatus === '' || issueDescription === '' || identifier === ''
     || targetCompletionDate === '' || dateIdentified === '') {
@@ -21,16 +22,17 @@ function AddBug(edit){
             bugs = [];  
         }
         const newbug = {
-            id: bugs.length > 0 ? parseInt(bugs[bugs.length - 1]['id']) + 1 : 1,
-            issue: issueName,
-            priority: issuePriority,
-            status: issueStatus,
-            description: issueDescription,
-            identifier: identifier,
-            targetCompDate: targetCompletionDate,
-            dateIdentified: dateIdentified,
-            actualCompDate: actualCompletionDate,
-            assignedTo: assignedTo,
+            'ID': bugs.length > 0 ? parseInt(bugs[bugs.length - 1]['id']) + 1 : 1,
+            'Issue': issueName,
+            'Priority': issuePriority,
+            'Status': issueStatus,
+            'Description': issueDescription,
+            'Identified by': identifier,
+            'Target Complete Date': targetCompletionDate,
+            'Date Identified': dateIdentified,
+            'Actual Complete Date': actualCompletionDate,
+            'Assigned To': assignedTo,
+            'Project': project,
         }
         //add bug to array
         if (edit == true) {
@@ -126,7 +128,7 @@ function LoadBugs(){
                 document.getElementById('DateIdentified').value = this.childNodes[7].innerHTML;
                 document.getElementById('ActualCompDate').value = this.childNodes[8].innerHTML;
                 document.getElementById('AssignedTo').value = this.childNodes[9].innerHTML;
-            
+                document.getElementById('projects').value = this.childNodes[10].innerHTML;;
             };
           }
         }

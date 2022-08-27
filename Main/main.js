@@ -7,6 +7,26 @@ window.onload = function(){ // Ensures the page is loaded before functions are e
     function handleForm(event) { event.preventDefault(); } 
     form.addEventListener('submit', handleForm);
 
+    var select = document.getElementById('projects');
+    let arrProjects = JSON.parse(window.localStorage.getItem("projects"));
+    for (let i = 0; i < arrProjects.length; i++) {
+        var opt = document.createElement('option');
+        opt.value = arrProjects[i]["name"];
+        opt.innerHTML = arrProjects[i]["name"];
+        select.appendChild(opt);
+    }
+
+    
+    var select = document.getElementById('Identifier');
+    let arrUsers = JSON.parse(window.localStorage.getItem("users"));
+
+    for (let i = 0; i < arrUsers.length; i++) {
+        var opt = document.createElement('option');
+        opt.value = arrUsers[i]["username"];
+        opt.innerHTML = arrUsers[i]["username"];
+        select.appendChild(opt);
+    }
+    
     // MARKDOWN CODE - NOT WORKING YET, JS GIVING ISSUES!
     // md_content = "Hello.\n\n* This is markdown.\n* It is fun\n* Love it or leave it."
     // html_content = markdown.toHTML( md_content );

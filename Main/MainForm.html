@@ -76,15 +76,17 @@
                                 <li>
                                     <label for="Status">Issue Status:</label>
                                     <select name="Issue Status" id="IssueStatus" class="SoftBorder, width">
-                                        <option value="">---Options---</option>
+                                        <option value="">---Status---</option>
                                         <option value="Open">Open</option>
                                         <option value="Closed">Closed</option>
                                         <option value="Overdue">Overdue</option> 
                                     </select>
                                 </li>
-                                <li>
+                                <li>            
                                     <label for="Identifier">Identified by:</label>
-                                    <input type="text" name="Identifier" id="Identifier">
+                                    <select name="Identifier" id="Identifier" class="SoftBorder, width">
+                                        <option value="">---Users---</option>
+                                    </select>
                                 </li>
                                 <li>
                                     <label for="Date when identified">Date identified:</label>
@@ -102,7 +104,7 @@
                                 <li>
                                     <label for="Issue Priority">Issue Priority:</label>
                                     <select name="Issue Priority" id="IssuePriority" class="SoftBorder, width">
-                                        <option value="">---Options---</option>
+                                        <option value="">---Priority---</option>
                                         <option value="High" class="Red">High</option>
                                         <option value="Medium" class="Yellow">Medium</option>
                                         <option value="Low" class="Green">Low</option> 
@@ -124,8 +126,6 @@
                                     <label for="Project">Projects:</label>
                                     <select name="Project" id="projects" class="SoftBorder, width">
                                         <option value="">---Options---</option>
-                                        <option value="High">PRJ01</option>
-                                        <option value="Medium">PRJO2</option>
                                     </select>
                                 </li>
                             </ol>

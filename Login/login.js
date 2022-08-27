@@ -61,6 +61,23 @@ window.onload = function(){ //ensures the page is loaded before functions are ex
     ]
     window.localStorage.setItem('users', JSON.stringify(users)); 
     // SETUP PROJECTS
-    window.localStorage.setItem('PRJ01', 'Project 1');
-    window.localStorage.setItem('PRJ02', 'Project 2');
+    let projects = 
+    [ 
+        {
+            id: '1',
+            name: 'Fitness App',
+            members: ['the douest of Janes 247', 'the douest of Johns 556'],
+        },            
+        {
+            id: '2',
+            name: 'Being a dope lecturer',
+            members: ['admin'],
+        },  
+        {
+            id: '3',
+            name: 'Some project that someone started to work on but everybody got bored quickly',
+            members: ['the douest of Janes 247', 'the douest of Johns 556', 'admin'],
+        },  
+    ]
+    window.localStorage.setItem('projects', JSON.stringify(projects)); 
 }
