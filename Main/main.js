@@ -3,15 +3,14 @@ let currentUser;
 function changePFP(){
     let response = window.prompt("Enter url for profile picture","");
     if (response !== null && response !== "") {
-        console.log(response);
         let arrUsers = JSON.parse(window.localStorage.getItem("users"));
         for (let i = 0; i < arrUsers.length; i++) {
             if (arrUsers[i]["id"] == currentUser.id) {
-                console.log(arrUsers[i])
                 arrUsers[i]["profilePicture"] = response;
                 break;
             }
         }
+        console.log(arrUsers);
         window.localStorage.setItem("users", JSON.stringify(arrUsers));
         document.getElementById('profileImage').src = response;
     }
