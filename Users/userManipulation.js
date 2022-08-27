@@ -1,30 +1,13 @@
 function LoadUsers(){
-    let arrUsers = [];
-
-    for(let i = 0; i < localStorage.length; i++) {
-        var value = localStorage.getItem('User0' + i)
-
-        if (value != null){
-            arrUsers.push(value.toUpperCase());
-        }
-    }
+    let arrUsers = JSON.parse(window.localStorage.getItem("users"));
 
     // Create Table from JSON object array
-    let col = [];
-    for (let i = 0; i < arrUsers.length; i++)
-    {        
-        var jsonParsedArray = JSON.parse(arrUsers[i]);
-
-        if (i == 1)
-        {
-            for (key in jsonParsedArray)
-            {
-                if (jsonParsedArray.hasOwnProperty(key)) {
-                    col.push(key);
-                }
+        let col = [];
+        Object.keys(arrUsers[0]).forEach(function(key) {
+            if (key !== "password"){
+                col.push(key);
             }
-        }
-    }
+        });
 
     // Create Table
     const table = document.createElement("table");
@@ -43,13 +26,11 @@ function LoadUsers(){
   
         tr = table.insertRow(-1);
 
-        var jsonParsedArray = JSON.parse(arrUsers[i]);
-
-        for (key in jsonParsedArray)
+        for (key in arrUsers[i])
         {
-            if (jsonParsedArray.hasOwnProperty(key)) {
+            if (key !== "password"){
                 let tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = jsonParsedArray[key];
+                tabCell.innerHTML = arrUsers[i][key];
             }
         }
     }
