@@ -22,7 +22,7 @@ function AddBug(edit){
             bugs = [];  
         }
         const newbug = {
-            'ID': bugs.length > 0 ? parseInt(bugs[bugs.length - 1]['id']) + 1 : 1,
+            'id': bugs.length > 0 ? parseInt(bugs[bugs.length - 1]['id']) + 1 : 1,
             'Issue': issueName,
             'Priority': issuePriority,
             'Status': issueStatus,
@@ -59,6 +59,7 @@ function AddBug(edit){
             window.localStorage.setItem('bugs', JSON.stringify(bugs));
             LoadBugs();
         }
+        console.log(bugs);
     }
 }
 
@@ -156,22 +157,22 @@ function LoadBugs(){
 }
 function HighlightRow(table) {
     var cells = table.getElementsByTagName('td');
-    for (var i = 0; i < cells.length; i++) {
-        // Take each cell
+    for(var i = 0; i < cells.length; i++){
+        // Get individual cell
         var cellVals = cells[i];
         // onclick event highlights
         cellVals.onclick = function () {
             // Get row id for cell
             var rowsNotSelected = table.getElementsByTagName('tr');
             var rowId = this.parentNode.rowIndex;
-            for (var row = 0; row < rowsNotSelected.length; row++) {
+            for(let row = 0; row < rowsNotSelected.length; row++){
                 rowsNotSelected[row].style.backgroundColor = "";
                 rowsNotSelected[row].classList.remove('selected');
             }
             var selectedRow = table.getElementsByTagName('tr')[rowId];
             selectedRow.style.backgroundColor = "aliceblue";
             selectedRow.className += " selected"; // Don't understand this; will keep searching
-            msg = 'The ID of the bug is: ' + selectedRow.cells[0].innerHTML;
+            let msg = 'The ID of the bug is: ' + selectedRow.cells[0].innerHTML;
             msg += '\nThe cell value is: ' + this.innerHTML;
             console.log(msg);
         }

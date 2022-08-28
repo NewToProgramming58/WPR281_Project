@@ -1,3 +1,4 @@
+@@ -0,0 +1,282 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +13,7 @@
     <script type="text/javascript" src="../Bugs/bugManipulation.js"></script>
     <script type="text/javascript" src="../Users/userManipulation.js"></script>
     <script type="text/javascript" src="../Projects/projectManipulation.js"></script>
+    
 </head>
 <body>
     <section class="Wrapper-Main">
@@ -35,25 +37,25 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#MemberSection">
+                    <a href="MainForm.html" target="_parent">
                         <i class='bx bxs-user-circle'></i>
                         <span class="nav-item">Members</span>
                     </a>
                 </li>
                 <li>
-                    <a href="BugSection.html">
+                    <a href="BugSection.html" target="_parent">
                         <i class='bx bxs-bug'></i>
                         <span class="nav-item">Bugs</span>
                     </a>
                 </li>
                 <li>
-                    <a href="ProjectSection.html">
+                    <a href="ProjectSection.html" target="_parent">
                         <i class='bx bxs-check-square'></i>
                         <span class="nav-item">Projects</span>
                     </a>
                 </li>
                 <li>
-                    <a href="Summary.html">
+                    <a href="Summary.html" target="_self">
                         <i class='bx bxs-notepad'></i>
                         <span class="nav-item">Summary</span>
                     </a>
@@ -73,9 +75,207 @@
             </ul>
         </nav>
         <div class="Container">
-            <section id="MemberSection">
-                <div id="showData">
-                    <!-- TABLE -->
+            <section id="SummarySection" class = "container_Height">
+                <div id="showData1">
+                    <label for="btnShow"></label>
+                    <button type = "button" id = "btnShow" class = "sumBtn">View all bugs</button> 
+                    
+                    <!--Summary table-->
+                    <h2 class = "in_Progress">All Tickets:</h2>
+                    <div class = "line"></div> 
+                        <table class = "sumTable, move" class = "remove_border">
+                            <thead class = "heading_Color"> 
+                                <th>
+                                    Project Name:
+                                </th>
+                                <th>
+                                    Issue Name:
+                                </th>
+                                <th>
+                                    Identified by:
+                                </th>
+                                <th>
+                                    <select name="" id=""  class = "background-color">
+                                        <section class = "hover_Effect_List">
+                                            <option value="">-status-</option>
+                                            <option value="">Backlog</option>
+                                            <option value="">Ready</option>
+                                            <option value="">In progress</option>
+                                            <option value="">Done</option>
+                                        </section>
+                                    </select>
+                                </th>
+                                <th>
+                                    Date fixed:
+                                </th>
+                                <th>
+                                    Priority Type:
+                                </th>
+                            </thead>
+                            <tbody class = "row_Colors">
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                </tr>
+                            </tbody>
+                        </table> 
                 </div>
             </section>
     </section>

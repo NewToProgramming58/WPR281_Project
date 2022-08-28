@@ -4,7 +4,7 @@ function LoadUsers(){
     // Create Table from JSON object array
         let col = [];
         Object.keys(arrUsers[0]).forEach(function(key) {
-            if (key !== "password"){
+            if (key !== "password" && key !== 'profilePicture'){
                 col.push(key);
             }
         });
@@ -28,7 +28,7 @@ function LoadUsers(){
 
         for (key in arrUsers[i])
         {
-            if (key !== "password"){
+            if (key !== "password" && key !== 'profilePicture'){
                 let tabCell = tr.insertCell(-1);
                 tabCell.innerHTML = arrUsers[i][key];
             }
