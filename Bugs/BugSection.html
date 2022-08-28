@@ -6,7 +6,7 @@
     <title>The bug tracker site</title>
     <!--Boxicons link-->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="MainFormStyle.css">
+    <link rel="stylesheet" href="../Main/MainFormStyle.css">
     <link rel="icon" type="image/x-icon" href="/WPR281_Project-main/Images/bug-solid-24.png">
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="../Bugs/bugManipulation.js"></script>
@@ -35,25 +35,25 @@
                     </a>
                 </li>
                 <li>
-                    <a href="MainForm.html" target="_parent">
+                    <a href="../Main/index.html" target="_parent">
                         <i class='bx bxs-user-circle'></i>
                         <span class="nav-item">Members</span>
                     </a>
                 </li>
                 <li>
-                    <a href="BugsSection.html" target="_parent">
+                    <a href="../Bugs/BugSection.html" target="_parent">
                         <i class='bx bxs-bug'></i>
                         <span class="nav-item">Bugs</span>
                     </a>
                 </li>
                 <li>
-                    <a href="ProjectSection.html" target="_parent">
+                    <a href="../Projects/ProjectSection.html" target="_parent">
                         <i class='bx bxs-check-square'></i>
                         <span class="nav-item">Projects</span>
                     </a>
                 </li>
                 <li>
-                    <a href="Summary.html" target="_parent">
+                    <a href="../Main/Summary.html" target="_parent">
                         <i class='bx bxs-notepad'></i>
                         <span class="nav-item">Summary</span>
                     </a>
@@ -102,8 +102,10 @@
                                     <input type="date" name="Date when identified" id="DateIdentified">
                                 </li>
                                 <li>
-                                    <label for="Assigned to">Assigned to:</label>
-                                    <input type="text" name="Assigned to" id="AssignedTo">
+                                    <label for="Assignedto">Assigned to:</label>
+                                    <select id="Assignedto" class="SoftBorder, width">
+                                        <option value="">---Users---</option>
+                                    </select>
                                 </li>
                             </ol>
                             

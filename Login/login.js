@@ -13,7 +13,7 @@ function login(){
             if (users[i]['username'] === username || users[i]['email'] === username.toLowerCase()) {
                 userExists = true;            
                 if (users[i]['password'] === pass) {
-                    window.location.href = '../Main/MainForm.html';
+                    window.location.href = '../Main/index.html';
                     window.localStorage.setItem("loggedInUser",users[i]['id']);
                 } else {
                     document.getElementById("password").value = "";
