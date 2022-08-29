@@ -17,46 +17,46 @@ function changePFP(){
 }
 
 window.onload = function(){ // Ensures the page is loaded before functions are executed.
-    LoadUsers();
-    LoadProjects();
-    LoadBugs();
+    // LoadUsers();
+    // LoadProjects();
+    // LoadBugs();
 
-    var form = document.getElementById("bugForm");
-    function handleForm(event) { event.preventDefault(); } 
-    form.addEventListener('submit', handleForm);
+    // var form = document.getElementById("bugForm");
+    // function handleForm(event) { event.preventDefault(); } 
+    // // form.addEventListener('submit', handleForm);
 
-    var select = document.getElementById('projects');
-    let arrProjects = JSON.parse(window.localStorage.getItem("projects"));
-    for (let i = 0; i < arrProjects.length; i++) {
-        var opt = document.createElement('option');
-        opt.value = arrProjects[i]["name"];
-        opt.innerHTML = arrProjects[i]["name"];
-        select.appendChild(opt);
-    }
+    // var select = document.getElementById('projects');
+    // let arrProjects = JSON.parse(window.localStorage.getItem("projects"));
+    // for (let i = 0; i < arrProjects.length; i++) {
+    //     var opt = document.createElement('option');
+    //     opt.value = arrProjects[i]["name"];
+    //     opt.innerHTML = arrProjects[i]["name"];
+    //     select.appendChild(opt);
+    // }
 
-    var selectIdentified = document.getElementById('Identifier');
-    var selectAssigned = document.getElementById('Assignedto');
-    let arrUsers = JSON.parse(window.localStorage.getItem("users"));
-    let loggedID = window.localStorage.getItem("loggedInUser");
-    for (let i = 0; i < arrUsers.length; i++) {
-        if (arrUsers[i]["id"] == loggedID) {
-            currentUser = {
-                "id": arrUsers[i]["id"],
-                "name": arrUsers[i]["name"],
-                "surname": arrUsers[i]["surname"],
-                "profilePicture": arrUsers[i]["profilePicture"],
-            }
-        }
-        var opt = document.createElement('option');
-        opt.value = arrUsers[i]["username"];
-        opt.innerHTML = arrUsers[i]["username"];
-        selectIdentified.appendChild(opt);
+    // var selectIdentified = document.getElementById('Identifier');
+    // var selectAssigned = document.getElementById('Assignedto');
+    // let arrUsers = JSON.parse(window.localStorage.getItem("users"));
+    // let loggedID = window.localStorage.getItem("loggedInUser");
+    // for (let i = 0; i < arrUsers.length; i++) {
+    //     if (arrUsers[i]["id"] == loggedID) {
+    //         currentUser = {
+    //             "id": arrUsers[i]["id"],
+    //             "name": arrUsers[i]["name"],
+    //             "surname": arrUsers[i]["surname"],
+    //             "profilePicture": arrUsers[i]["profilePicture"],
+    //         }
+    //     }
+    //     var opt = document.createElement('option');
+    //     opt.value = arrUsers[i]["username"];
+    //     opt.innerHTML = arrUsers[i]["username"];
+    //     selectIdentified.appendChild(opt);
 
-        var opt = document.createElement('option');
-        opt.value = arrUsers[i]["username"];
-        opt.innerHTML = arrUsers[i]["username"];
-        selectAssigned.appendChild(opt);
-    }
+    //     var opt = document.createElement('option');
+    //     opt.value = arrUsers[i]["username"];
+    //     opt.innerHTML = arrUsers[i]["username"];
+    //     selectAssigned.appendChild(opt);
+    // }
 
     document.getElementById('welcome').innerHTML = `Welcome ${currentUser.name} to the bug tracking site!`;
     document.getElementById('profileImage').src = currentUser.profilePicture;

@@ -8,10 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="MainFormStyle.css">
     <link rel="icon" type="image/x-icon" href="/WPR281_Project-main/Images/bug-solid-24.png">
-    <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="../Bugs/bugManipulation.js"></script>
-    <script type="text/javascript" src="../Users/userManipulation.js"></script>
-    <script type="text/javascript" src="../Projects/projectManipulation.js"></script>
+   <script src="summary.js"></script>
     
 </head>
 <body>
@@ -77,20 +74,17 @@
             <section id="SummarySection" class = "container_Height">
                 <div id="showData1">
                     <label for="btnShow"></label>
-                    <button type = "button" id = "btnShow" class = "sumBtn">View all bugs</button> 
+                    <button type = "button" id = "btnShow" class = "sumBtn" onclick="showAllBugs()">View all bugs</button> 
                     
                     <!--Summary table-->
                     <h2 class = "in_Progress">All Tickets:</h2>
-                    <div class = "line"></div> 
-                        <table class = "sumTable, move" class = "remove_border">
+                    <div class = "line">
+                        <table class = "BugsTable" id="summary">
                             <thead class = "heading_Color"> 
                                 <th>
-                                    <select name="" id=""  class = "background-color">
-                                        <section class = "hover_Effect_List">
-                                            <option value="">-Project Name:-</option>
-                                            <option value="">Open</option>
-                                            <option value="">Closed</option>
-                                            <option value="">Overdue</option>                                        
+                                    <select name="" id="summaryProjects"  class = "background-color" onchange="filter()">
+                                        <section class = "hover_Effect_List" >
+                                            <option value="">-Project Name:-</option>                                                       
                                         </section>
                                     </select>
                                 </th>
@@ -98,22 +92,19 @@
                                     Issue Name:
                                 </th>
                                 <th>
-                                    <select name="" id=""  class = "background-color">
+                                    <select name="" id="summaryUsers"  class = "background-color" onchange="filter()">
                                         <section class = "hover_Effect_List">
-                                            <option value="">-Identified by:-</option>
-                                            <option value="">Open</option>
-                                            <option value="">Closed</option>
-                                            <option value="">Overdue</option>                                        
+                                            <option value="">-Identified by:-</option>                                   
                                         </section>
                                     </select>
                                 </th>
                                 <th>
-                                    <select name="" id=""  class = "background-color">
+                                    <select name="" id="summaryStatuses"  class = "background-color" onchange="filter()">
                                         <section class = "hover_Effect_List">
                                             <option value="">-status-</option>
-                                            <option value="">Open</option>
-                                            <option value="">Closed</option>
-                                            <option value="">Overdue</option>                                        
+                                            <option value="Open">Open</option>
+                                            <option value="Closed">Closed</option>
+                                            <option value="Overdue">Overdue</option>                                        
                                         </section>
                                     </select>
                                 </th>
@@ -121,180 +112,21 @@
                                     Date fixed:
                                 </th>
                                 <th>                                    
-                                    <select name="" id=""  class = "background-color">
-                                        <section class = "hover_Effect_List">
-                                            <option value="">-Priority Type:-</option>
-                                            <option value="">Open</option>
-                                            <option value="">Closed</option>
-                                            <option value="">Overdue</option>                                        
+                                    <select name="" id="summaryPriority"  class = "background-color" onchange="filter()">     
+                                        <section class = "hover_Effect_List">                              
+                                            <option value="">-Priority-</option>
+                                            <option value="High" class="Red">High</option>
+                                            <option value="Medium" class="Yellow">Medium</option>
+                                            <option value="Low" class="Green">Low</option>                                       
                                         </section>
                                     </select>
                                 </th>
                             </thead>
-                            <tbody class = "row_Colors">
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                </tr>
+                            <tbody class = "row_Colors" id="summaryBody">
+                    
                             </tbody>
                         </table> 
+                    </div>
                 </div>
             </section>
     </section>

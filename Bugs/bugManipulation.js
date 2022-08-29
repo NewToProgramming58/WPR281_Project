@@ -1,4 +1,7 @@
 let bugTableID = -1;
+window.onload = function() {
+    LoadBugs();
+}
 function AddBug(edit){
     //Get values for new bug
     var issueName = document.getElementById('IssueName').value;
@@ -79,8 +82,6 @@ function LoadBugs(){
 
         // Create table header row using the extracted headers above
         let tr = table.insertRow(-1); // table row
-
-        tr.setAttribute('class', 'colour3');
 
         for (let i = 0; i < col.length; i++) {
             let th = document.createElement("th");// table header.
