@@ -36,17 +36,7 @@ window.onload = function(){ // Ensures the page is loaded before functions are e
 
     // var selectIdentified = document.getElementById('Identifier');
     // var selectAssigned = document.getElementById('Assignedto');
-    // let arrUsers = JSON.parse(window.localStorage.getItem("users"));
-    // let loggedID = window.localStorage.getItem("loggedInUser");
-    // for (let i = 0; i < arrUsers.length; i++) {
-    //     if (arrUsers[i]["id"] == loggedID) {
-    //         currentUser = {
-    //             "id": arrUsers[i]["id"],
-    //             "name": arrUsers[i]["name"],
-    //             "surname": arrUsers[i]["surname"],
-    //             "profilePicture": arrUsers[i]["profilePicture"],
-    //         }
-    //     }
+
     //     var opt = document.createElement('option');
     //     opt.value = arrUsers[i]["username"];
     //     opt.innerHTML = arrUsers[i]["username"];
@@ -57,7 +47,18 @@ window.onload = function(){ // Ensures the page is loaded before functions are e
     //     opt.innerHTML = arrUsers[i]["username"];
     //     selectAssigned.appendChild(opt);
     // }
-
+    let arrUsers = JSON.parse(window.localStorage.getItem("users"));
+    let loggedID = window.localStorage.getItem("loggedInUser");
+    for (let i = 0; i < arrUsers.length; i++) {
+        if (arrUsers[i]["id"] == loggedID) {
+            currentUser = {
+                "id": arrUsers[i]["id"],
+                "name": arrUsers[i]["name"],
+                "surname": arrUsers[i]["surname"],
+                "profilePicture": arrUsers[i]["profilePicture"],
+            }
+        }
+    }
     document.getElementById('welcome').innerHTML = `Welcome ${currentUser.name} to the bug tracking site!`;
     document.getElementById('profileImage').src = currentUser.profilePicture;
     // MARKDOWN CODE - NOT WORKING YET, JS GIVING ISSUES!

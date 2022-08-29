@@ -1,6 +1,36 @@
+let currentUser;
 let bugTableID = -1;
+function changePFP(){
+    let response = window.prompt("Enter url for profile picture","");
+    if (response !== null && response !== "") {
+        let arrUsers = JSON.parse(window.localStorage.getItem("users"));
+        for (let i = 0; i < arrUsers.length; i++) {
+            if (arrUsers[i]["id"] == currentUser.id) {
+                arrUsers[i]["profilePicture"] = response;
+                break;
+            }
+        }
+        console.log(arrUsers);
+        window.localStorage.setItem("users", JSON.stringify(arrUsers));
+        document.getElementById('profileImage').src = response;
+    }
+}
 window.onload = function() {
     LoadBugs();
+    let arrUsers = JSON.parse(window.localStorage.getItem("users"));
+    let loggedID = window.localStorage.getItem("loggedInUser");
+    for (let i = 0; i < arrUsers.length; i++) {
+        if (arrUsers[i]["id"] == loggedID) {
+            currentUser = {
+                "id": arrUsers[i]["id"],
+                "name": arrUsers[i]["name"],
+                "surname": arrUsers[i]["surname"],
+                "profilePicture": arrUsers[i]["profilePicture"],
+            }
+        }
+    }
+    document.getElementById('welcome').innerHTML = `Welcome ${currentUser.name} to the bug tracking site!`;
+    document.getElementById('profileImage').src = currentUser.profilePicture;
 }
 function AddBug(edit){
     //Get values for new bug
@@ -129,18 +159,9 @@ function LoadBugs(){
                 document.getElementById('TargetCompDate').value = this.childNodes[6].innerHTML;
                 document.getElementById('DateIdentified').value = this.childNodes[7].innerHTML;
                 document.getElementById('ActualCompDate').value = this.childNodes[8].innerHTML;
-                document.getElementById('AssignedTo').value = this.childNodes[9].innerHTML;
+                document.getElementById('Assignedto').value = this.childNodes[9].innerHTML;
                 document.getElementById('projects').value = this.childNodes[10].innerHTML;
-                /*
-                // Is there a way to get a global array with all the IDs above? Then you iterate through idArr like
-                // Or even add it to localStorage with key 'tableids' / 'bugids' etc.?
-                // If it's a good idea and we're finished before Sunday evening, I'll do it
-                const idArr = [];
-                idArr.push[document.getId] // Smth like this, or manually add?
-                for(let j = 0; j < idArr.length; j++)
-                    document.getElementById(idArr[j]).value = this.childNodes[j].innerHTML; 
-                // Replaces code in table.rows[i].onclick func
-                */
+                HighlightRow(table)
             };
           }
         }
@@ -151,10 +172,16 @@ function LoadBugs(){
         divShowData.appendChild(table);
     }
     else {
-        const title = document.createElement("title");
-        title.title = "No current bugs"
+        const noBugs = document.createElement('div');
+        noBugs.textContent = 'No current listed bugs found';
+        noBugs.setAttribute('title', 'my-title');
+
+        noBugs.style.color = 'white';
+
+        const divShowData = document.getElementById('showBugs');
+        divShowData.innerHTML = "";
+        divShowData.appendChild(noBugs);
     }
-    //HighlightRow(table) // Where is this supposed to go? LoadBugs() goes into window.onload, so is this fine here?
 }
 function HighlightRow(table) {
     var cells = table.getElementsByTagName('td');
@@ -173,9 +200,6 @@ function HighlightRow(table) {
             var selectedRow = table.getElementsByTagName('tr')[rowId];
             selectedRow.style.backgroundColor = "aliceblue";
             selectedRow.className += " selected"; // Don't understand this; will keep searching
-            let msg = 'The ID of the bug is: ' + selectedRow.cells[0].innerHTML;
-            msg += '\nThe cell value is: ' + this.innerHTML;
-            console.log(msg);
         }
     }
 }

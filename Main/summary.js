@@ -1,4 +1,33 @@
+let currentUser;
+function changePFP(){
+    let response = window.prompt("Enter url for profile picture","");
+    if (response !== null && response !== "") {
+        let arrUsers = JSON.parse(window.localStorage.getItem("users"));
+        for (let i = 0; i < arrUsers.length; i++) {
+            if (arrUsers[i]["id"] == currentUser.id) {
+                arrUsers[i]["profilePicture"] = response;
+                break;
+            }
+        }
+        window.localStorage.setItem("users", JSON.stringify(arrUsers));
+        document.getElementById('profileImage').src = response;
+    }
+}
 window.onload = function() {
+    let arrUsers = JSON.parse(window.localStorage.getItem("users"));
+    let loggedID = window.localStorage.getItem("loggedInUser");
+    for (let i = 0; i < arrUsers.length; i++) {
+        if (arrUsers[i]["id"] == loggedID) {
+            currentUser = {
+                "id": arrUsers[i]["id"],
+                "name": arrUsers[i]["name"],
+                "surname": arrUsers[i]["surname"],
+                "profilePicture": arrUsers[i]["profilePicture"],
+            }
+        }
+    }
+    document.getElementById('welcome').innerHTML = `Welcome ${currentUser.name} to the bug tracking site!`;
+    document.getElementById('profileImage').src = currentUser.profilePicture;
     var selectAssigned = document.getElementById('summaryUsers');
     let users = JSON.parse(window.localStorage.getItem("users"));
     for (let i = 0; i < users.length; i++) {
@@ -43,24 +72,23 @@ function filter() {
         var noFilterStatuses = selectStatuses == "";
         var noFilterPriority = selectPriority == "";
         let showAll = noFilterProjects && noFilterIdentified && noFilterStatuses && noFilterPriority;
-        let filteredBugs = showAll == true ? bugs.splice(0,20) : [];
+        let filteredBugs = showAll == true ? bugs: [];
+        
         if (!showAll) {         
             for (var i = 0; i < bugs.length; i++) {
                 if ((noFilterProjects || selectProjects == bugs[i]["Project"]) && (noFilterIdentified || selectIdentified == bugs[i]["Identified by"]) 
-                && (noFilterStatuses || selectStatuses == bugs[i]["Status"]) && (noFilterPriority || bugs[i]["Priority"] == selectPriority)) {
-                    filteredBugs.push(bugs[i]);
+                    && (noFilterStatuses || selectStatuses == bugs[i]["Status"]) && (noFilterPriority || bugs[i]["Priority"] == selectPriority)) {
+                    filteredBugs.push(bugs[i]);                                       
                 }
             }
         }
         
-        // Create Table
         const table = document.getElementById("summary");
         for(var i = table.rows.length - 1; i > 0; i--)
         {
             table.deleteRow(i);
         }
 
-        
         if (filteredBugs.length > 0) {
             let tr;// table row
     
@@ -97,5 +125,6 @@ function filter() {
                 }              
             }
         }      
+        document.getElementById("tickets").innerHTML = `Tickets: ${filteredBugs.length} found`
     }
 }
