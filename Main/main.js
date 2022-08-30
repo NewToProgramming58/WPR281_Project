@@ -17,7 +17,7 @@ function changePFP(){
 }
 
 window.onload = function(){ // Ensures the page is loaded before functions are executed.
-    // LoadUsers();
+    LoadUsers();
     // LoadProjects();
     // LoadBugs();
 
