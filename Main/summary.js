@@ -48,8 +48,6 @@ window.onload = function() {
             selectAssigned.appendChild(opt);
         }
     }
-    // document.getElementById('welcome').innerHTML = `Welcome ${currentUser.name} to the bug tracking site!`;
-    // document.getElementById('profileImage').src = currentUser.profilePicture;
     showAllBugs();
 }
 function showAllBugs(){

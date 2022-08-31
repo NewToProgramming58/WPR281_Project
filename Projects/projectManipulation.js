@@ -96,7 +96,7 @@ function AddProject(edit){
         }
         const newProject = {
             'id': projects.length > 0 ? parseInt(projects[projects.length - 1]['id']) + 1 : 1,
-            'issue': projectName,
+            'name': projectName,
             'description': description,
         }
         // add project to array
