@@ -10,7 +10,6 @@ function changePFP(){
                 break;
             }
         }
-        console.log(arrUsers);
         window.localStorage.setItem("users", JSON.stringify(arrUsers));
         document.getElementById('profileImage').src = response;
     }
@@ -34,11 +33,4 @@ window.onload = function(){ // Ensures the page is loaded before functions are e
     }
     document.getElementById('welcome').innerHTML = `Welcome ${currentUser.name} to the bug tracking site!`;
     document.getElementById('profileImage').src = currentUser.profilePicture;
-    // MARKDOWN CODE - NOT WORKING YET, JS GIVING ISSUES!
-    // md_content = "Hello.\n\n* This is markdown.\n* It is fun\n* Love it or leave it."
-    // html_content = markdown.toHTML( md_content );
-
-    // const divShowData = document.getElementById('TestMD');
-    // divShowData.innerHTML = "";
-    // divShowData.appendChild(html_content);
 }

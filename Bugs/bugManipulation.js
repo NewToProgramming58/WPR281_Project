@@ -10,7 +10,6 @@ function changePFP(){
                 break;
             }
         }
-        console.log(arrUsers);
         window.localStorage.setItem("users", JSON.stringify(arrUsers));
         document.getElementById('profileImage').src = response;
     }
@@ -66,12 +65,12 @@ function AddBug(edit){
     var targetCompletionDate = document.getElementById('TargetCompDate').value;
     var dateIdentified = document.getElementById('DateIdentified').value;
     var actualCompletionDate = document.getElementById('ActualCompDate').value;
-    var assignedTo = document.getElementById('AssignedTo').value;
+    var assignedTo = document.getElementById('Assignedto').value;
     var project = document.getElementById('projects').value;
     
     if (issueName === '' || issuePriority === '' || issueStatus === '' || issueDescription === '' || identifier === ''
     || targetCompletionDate === '' || dateIdentified === '') {
-        alert('Please enter all fields');
+        alert('Please enter issue name, priority, status, target completion date, dateIdentified, and description');
     } else {
         //get bugs from storage
         let bugs = JSON.parse(window.localStorage.getItem('bugs'));
@@ -81,15 +80,15 @@ function AddBug(edit){
         const newbug = {
             'id': bugs.length > 0 ? parseInt(bugs[bugs.length - 1]['id']) + 1 : 1,
             'Issue': issueName,
+            'Description': issueDescription,
             'Priority': issuePriority,
             'Status': issueStatus,
-            'Description': issueDescription,
             'Identified by': identifier,
             'Target Complete Date': targetCompletionDate,
             'Date Identified': dateIdentified,
-            'Actual Complete Date': actualCompletionDate,
             'Assigned To': assignedTo,
             'Project': project,
+            'Actual Complete Date': actualCompletionDate,
         }
         //add bug to array
         if (edit == true) {
@@ -116,7 +115,6 @@ function AddBug(edit){
             window.localStorage.setItem('bugs', JSON.stringify(bugs));
             LoadBugs();
         }
-        console.log(bugs);
     }
 }
 
