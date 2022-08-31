@@ -74,16 +74,19 @@ window.onload = function(){ //ensures the page is loaded before functions are ex
                 id: '1',
                 name: 'Fitness App',
                 members: ['the douest of Janes 247', 'the douest of Johns 556'],
+                description: "A app that keeps track of your fitness goals"
             },            
             {
                 id: '2',
                 name: 'WPR281_Project',
                 members: ['admin'],
+                description: "Design a bug tracking website"
             },  
             {
                 id: '3',
                 name: 'Some project that someone started to work on but everybody got bored quickly',
                 members: ['the douest of Janes 247', 'the douest of Johns 556', 'admin'],
+                description: "If read the name you can understand why I am too lazy to type a proper description"
             },  
         ]
         window.localStorage.setItem('projects', JSON.stringify(projects)); 

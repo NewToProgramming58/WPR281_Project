@@ -20,33 +20,6 @@ window.onload = function(){ // Ensures the page is loaded before functions are e
     LoadUsers();
     // LoadProjects();
     // LoadBugs();
-
-    // var form = document.getElementById("bugForm");
-    // function handleForm(event) { event.preventDefault(); } 
-    // // form.addEventListener('submit', handleForm);
-
-    // var select = document.getElementById('projects');
-    // let arrProjects = JSON.parse(window.localStorage.getItem("projects"));
-    // for (let i = 0; i < arrProjects.length; i++) {
-    //     var opt = document.createElement('option');
-    //     opt.value = arrProjects[i]["name"];
-    //     opt.innerHTML = arrProjects[i]["name"];
-    //     select.appendChild(opt);
-    // }
-
-    // var selectIdentified = document.getElementById('Identifier');
-    // var selectAssigned = document.getElementById('Assignedto');
-
-    //     var opt = document.createElement('option');
-    //     opt.value = arrUsers[i]["username"];
-    //     opt.innerHTML = arrUsers[i]["username"];
-    //     selectIdentified.appendChild(opt);
-
-    //     var opt = document.createElement('option');
-    //     opt.value = arrUsers[i]["username"];
-    //     opt.innerHTML = arrUsers[i]["username"];
-    //     selectAssigned.appendChild(opt);
-    // }
     let arrUsers = JSON.parse(window.localStorage.getItem("users"));
     let loggedID = window.localStorage.getItem("loggedInUser");
     for (let i = 0; i < arrUsers.length; i++) {

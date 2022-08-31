@@ -15,6 +15,7 @@ function changePFP(){
         document.getElementById('profileImage').src = response;
     }
 }
+
 window.onload = function() {
     LoadBugs();
     let arrUsers = JSON.parse(window.localStorage.getItem("users"));
@@ -28,10 +29,33 @@ window.onload = function() {
                 "profilePicture": arrUsers[i]["profilePicture"],
             }
         }
+        var selectIdentified = document.getElementById('Identifier');
+        var selectAssigned = document.getElementById('Assignedto');
+
+        var opt = document.createElement('option');
+        opt.value = arrUsers[i]["username"];
+        opt.innerHTML = arrUsers[i]["username"];
+        selectIdentified.appendChild(opt);
+
+        var opt = document.createElement('option');
+        opt.value = arrUsers[i]["username"];
+        opt.innerHTML = arrUsers[i]["username"];
+        selectAssigned.appendChild(opt);
     }
+    
+    var select = document.getElementById('projects');
+    let arrProjects = JSON.parse(window.localStorage.getItem("projects"));
+    for (let i = 0; i < arrProjects.length; i++) {
+        var opt = document.createElement('option');
+        opt.value = arrProjects[i]["name"];
+        opt.innerHTML = arrProjects[i]["name"];
+        select.appendChild(opt);
+    }
+
     document.getElementById('welcome').innerHTML = `Welcome ${currentUser.name} to the bug tracking site!`;
     document.getElementById('profileImage').src = currentUser.profilePicture;
 }
+
 function AddBug(edit){
     //Get values for new bug
     var issueName = document.getElementById('IssueName').value;
@@ -152,15 +176,15 @@ function LoadBugs(){
             table.rows[i].onclick = function() {
                 bugTableID = this.childNodes[0].innerHTML;
                 document.getElementById('IssueName').value = this.childNodes[1].innerHTML;
-                document.getElementById('IssuePriority').value = this.childNodes[2].innerHTML;
-                document.getElementById('IssueStatus').value = this.childNodes[3].innerHTML;
-                document.getElementById('IssueDescp').value = this.childNodes[4].innerHTML;
+                document.getElementById('IssueDescp').value = this.childNodes[2].innerHTML;
+                document.getElementById('IssuePriority').value = this.childNodes[3].innerHTML;
+                document.getElementById('IssueStatus').value = this.childNodes[4].innerHTML;
                 document.getElementById('Identifier').value = this.childNodes[5].innerHTML;
                 document.getElementById('TargetCompDate').value = this.childNodes[6].innerHTML;
-                document.getElementById('DateIdentified').value = this.childNodes[7].innerHTML;
-                document.getElementById('ActualCompDate').value = this.childNodes[8].innerHTML;
-                document.getElementById('Assignedto').value = this.childNodes[9].innerHTML;
-                document.getElementById('projects').value = this.childNodes[10].innerHTML;
+                document.getElementById('DateIdentified').value = this.childNodes[7].innerHTML;                
+                document.getElementById('Assignedto').value = this.childNodes[8].innerHTML;
+                document.getElementById('projects').value = this.childNodes[9].innerHTML;
+                document.getElementById('ActualCompDate').value = this.childNodes[10].innerHTML;
                 HighlightRow(table)
             };
           }
