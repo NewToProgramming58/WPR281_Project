@@ -1,5 +1,7 @@
 window.onload = LoadProjects();
 
+let projectTableID = -1; // Don't know what this is for; was in bugManipulation.js
+
 function LoadProjects(){
     let arrProjects = JSON.parse(window.localStorage.getItem("projects"));
     if (arrProjects !== null) {
@@ -33,5 +35,79 @@ function LoadProjects(){
         const divShowData = document.getElementById("divShowData");
         divShowData.innerHTML = "";
         divShowData.appendChild(table);
+    }
+}
+
+function AddProject(edit){
+    //Get values for new project
+    var issueName = document.getElementById('IssueName').value;
+    var projectName = document.getElementById('Name').value;
+    var description = document.getElementById('description').value;
+    
+    if (projectName === '' || issueName === '' || description === '') {
+        alert('Please enter all fields');
+    } else {
+        //get project from storage
+        let projects = JSON.parse(window.localStorage.getItem('projects'));
+        if (projects == null) {
+            projects = [];  
+        }
+        const newProject = {
+            'id': projects.length > 0 ? parseInt(projects[projects.length - 1]['id']) + 1 : 1,
+            'issue': projectName,
+            'description': description,
+        }
+        // add project to array
+        if (edit == true) {
+            if (projectTableID > 0) {
+                let length = projects.length;
+                let i = -1;
+                let projectExists = false;
+                while (i < length && !projectExists) {
+                    i++;
+                    if (projects[i]['id'] == projectTableID) {
+                        projectExists = true; 
+                        newProject["id"] = projectTableID;
+                        projects[i] = newProject;
+                    }
+                }
+                window.localStorage.setItem('projects', JSON.stringify(projects));
+                LoadProjects();
+            } else {
+                alert("Select a project first");
+            } 
+        } else {    
+            projects.push(newProject);
+            //store array again
+            window.localStorage.setItem('projects', JSON.stringify(projects));
+            LoadProjects();
+        }
+        console.log(projects);
+    }
+}
+function RemoveProject(){   
+    if (projectTableID > 0) {
+        let projects = JSON.parse(window.localStorage.getItem('projects'));
+        if (projects !== null) {
+            let length = projects.length;
+            if (length > 1) {
+            let i = -1;
+                let projectExists = false;
+                while (i < length && !bugExists) {
+                    i++;
+                    if (projects[i]['id'] == projectTableID) {
+                        projectExists = true;            
+                        projects.splice(i, 1);
+                    }
+                }
+                window.localStorage.setItem('projects', JSON.stringify(projects));
+            } else {
+                window.localStorage.removeItem('projects');
+            }
+            LoadProjects();
+            projectTableID = -1;
+        }
+    } else {
+        alert("Select a project first");
     }
 }
