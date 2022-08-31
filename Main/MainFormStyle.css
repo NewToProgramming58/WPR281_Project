@@ -106,8 +106,9 @@ nav:hover{
     bottom: 0;
 }
 .Container section{
+    overflow-y: scroll;
     padding-top: 4%;
-    height: auto;
+    height: 100vh;
     display: flex;
     justify-content: center;
     background-color: rgb(98, 134, 134);
