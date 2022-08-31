@@ -176,27 +176,15 @@ function LoadBugs(){
             table.rows[i].onclick = function() {
                 bugTableID = this.childNodes[0].innerHTML;
                 document.getElementById('IssueName').value = this.childNodes[1].innerHTML;
-                document.getElementById('IssuePriority').value = this.childNodes[2].innerHTML;
-                console.log( this.childNodes[0].innerHTML);
-                console.log( this.childNodes[1].innerHTML);
-                console.log( this.childNodes[2].innerHTML);
-                console.log( this.childNodes[3].innerHTML);
-                console.log( this.childNodes[4].innerHTML);
-                console.log( this.childNodes[5].innerHTML);
-                console.log( this.childNodes[6].innerHTML);
-                console.log( this.childNodes[7].innerHTML);
-                console.log( this.childNodes[8].innerHTML);
-                console.log( this.childNodes[9].innerHTML);
-                console.log( this.childNodes[10].innerHTML);
-
-                document.getElementById('IssueStatus').value = this.childNodes[3].innerHTML;
-                document.getElementById('IssueDescp').value = this.childNodes[4].innerHTML;
+                document.getElementById('IssueDescp').value = this.childNodes[2].innerHTML;
+                document.getElementById('IssuePriority').value = this.childNodes[3].innerHTML;
+                document.getElementById('IssueStatus').value = this.childNodes[4].innerHTML;
                 document.getElementById('Identifier').value = this.childNodes[5].innerHTML;
                 document.getElementById('TargetCompDate').value = this.childNodes[6].innerHTML;
-                document.getElementById('DateIdentified').value = this.childNodes[7].innerHTML;
-                document.getElementById('ActualCompDate').value = this.childNodes[8].innerHTML;
-                document.getElementById('Assignedto').value = this.childNodes[9].innerHTML;
-                document.getElementById('projects').value = this.childNodes[10].innerHTML;
+                document.getElementById('DateIdentified').value = this.childNodes[7].innerHTML;                
+                document.getElementById('Assignedto').value = this.childNodes[8].innerHTML;
+                document.getElementById('projects').value = this.childNodes[9].innerHTML;
+                document.getElementById('ActualCompDate').value = this.childNodes[10].innerHTML;
                 HighlightRow(table)
             };
           }
