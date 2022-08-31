@@ -18,8 +18,8 @@
     right: 0px;
 }
 .Wrapper-Main{
+    overflow: hidden;
     width: 100%;
-    margin: auto;
 }
 .Wrapper-Main header{
     position: fixed;
@@ -106,13 +106,9 @@ nav:hover{
     bottom: 0;
 }
 .Container section{
-    height: 5000px;
-    width: 2000px;
+    height: auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-}
-.Container section{
     background-color: rgb(98, 134, 134);
 }
 .MemberTable{
@@ -156,9 +152,6 @@ nav:hover{
     border: 1px solid black;
     border-collapse: collapse;
     width: auto;
-}
-.BugsTable3{
-    
 }
 .BugsTable2 th, td{
     padding: 10px;
@@ -256,12 +249,8 @@ nav:hover{
     color: black;
     margin-bottom: 10px;
 }
-/* .line{
-    border-bottom: 1px solid black;
-    width: 750px; 
-} */
 .container_Height{
-    height: 2000px;
+    margin-left: -5%;
 }
 .row_Colors tr:nth-child(odd){
     background-color: whitesmoke;
