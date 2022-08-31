@@ -74,7 +74,7 @@
         <div class="Container">
             <section id="container_Height">
                 <form id="bugForm">
-                    <div >
+                    <div class="one">
                         <fieldset class="field1">
                             <ol>
                                 <li>
@@ -139,15 +139,23 @@
                                     </select>
                                 </li>
                             </ol>
-                        </fieldset>
-                        <button class="button1" onclick="AddBug()">Add Issue</button>
-                        <button class="button2" onclick="AddBug(true)">Edit Issue</button>
-                        <button class="button3" onclick="RemoveBug()">Remove Issue</button>
+                        </fieldset>                                
                     </div>  
-                </form>
-                <div id="showBugs">
-                    <!-- TABLE -->
-                </div>                    
+                    <ol class="listButttons">
+                        <li>
+                            <button class="button" onclick="AddBug()">Add Issue</button>                               
+                        </li>
+                        <li>
+                            <button class="button" onclick="AddBug(true)">Edit Issue</button>                                
+                        </li>
+                        <li>
+                            <button class="button" onclick="RemoveBug()">Remove Issue</button>
+                        </li>
+                    </ol>
+                    <div id="showBugs">
+                        <!-- TABLE -->
+                    </div>  
+                </form>                  
             </section>
         </div>
     </section>

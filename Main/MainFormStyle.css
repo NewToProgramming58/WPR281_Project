@@ -35,7 +35,7 @@
 }
 *{
     margin: 0;
-    padding: 0;
+    padding-left: 0;
     outline: none;
     border: none;
     text-decoration: none;
@@ -113,8 +113,7 @@ nav:hover{
     background-color: rgb(98, 134, 134);
 }
 .MemberTable{
-    margin-left: -600px;
-    margin-bottom: 4490px;
+    justify-content: center;
     background-color: whitesmoke;
 }
 .MemberTable{
@@ -174,11 +173,19 @@ nav:hover{
     background-color: green;
     color: white;
 }
+.one{
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2,280px);
+    grid-template-rows: max-content;
+    grid-gap: 15px;
+}
 
 .field1 ol, .field2 ol{
     list-style: none;
 }
 .field1 li, .field2 li{
+    display: inline;
     margin: 1em;
 }
 .field1 input, .field2 input{
@@ -197,25 +204,24 @@ nav:hover{
     border-radius: 5px;
     padding: 5px;
 }
-.button1, .button2, .button3 {
+.button {
     width: 50%;
     padding: 5px;
     border-radius: 4px;
     font-weight: bold;
 }
-.button1{
-    /* position: relative; */
-    margin-left: 15px;
+.listButttons{
+    margin: 2%;
+    text-align: center;
+    width: auto;
+    list-style: none;
 }
-.button2{
-    /* position: relative; */
-    margin-left: -100px;
+.listButttons li{
+    display: inline-table;
+    margin-right: 2%;
 }
-.button3{
-    position: absolute;
-    margin-left: 400px;
-    margin-top: 447px;
-    width: 10%;
+.listButttons li button{
+   width: auto;
 }
 .sumTable {
     border: 1px solid black;
@@ -243,6 +249,7 @@ nav:hover{
     margin-bottom: 10px;
 }
 .container_Height{
+    height: auto;
     margin-left: -5%;
 }
 .row_Colors tr:nth-child(odd){
@@ -264,24 +271,11 @@ nav:hover{
 .sumTable tr td{
     border-collapse: collapse;
 }
-
-/*Header colour for member table*/
-
 .HeaderColour1{
 
     background-color: cadetblue;
     color: white;
 }
-
-/* Bug table position */
-#showBugs{
-    position: absolute;
-    margin-top: 840px;
-    margin-left: -300px;
-}
-
-
-/*Project section styling*/
 
 .ProjectTable{
     width: 700px;
@@ -338,130 +332,3 @@ nav:hover{
     margin-left: -400px;
     margin-bottom: 4400px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .Main-wrapper{
-    width: 100%;
-    height: 100%;
-}
-.center{
-    height:8vw;
-    width:8vw;
-    margin-top:3vw;
-    margin-left: 3vw;
-}
-.nav-menu ul{
-    list-style-type: none;
-    margin-top: 12px;
-    margin-left: 25px;
-    padding: 0;
-    width: 10%;
-    background-color: white;
-
-    /* list-style-type: none;
-    margin-top: 12px;
-    margin-left: 11px;
-    padding: 0px 8px 0px 22px;
-    width: 10%;
-    background-color: white;
-
-    Wanted to do this first but did not work so 
-    just commented it out
-
-.nav-menu li a{
-    display: block;
-    color: #000;
-    padding: 15px 25px;
-    text-decoration: none;
-}
-.nav-menu li a.active{
-    background-color: black;
-    color: white;
-    width: 85px;
-    height: auto;
-    text-align: center;
-    margin-right: 1000px;
-}
-.nav-menu li a:hover:not(.active){
-    background-color: whitesmoke;
-    color: orangered;
-}
-.heading1 h1{
-   position: relative;
-   margin-left: 360px;
-}
-.heading1 h1{
-    position:absolute;
-    margin-top: 80px;
-}
-.heading1 h1{
-    padding: 10px 50px 10px 50px;
-    color: black;
-    text-decoration: underline;
-    text-transform:uppercase;
-}
-.div1{
-    background-color:burlywood;
-    padding-bottom: 10px;
-    box-shadow: white;
-
-}
-.border{
-    background-color: black;
-    display: grid;
-    grid-template-rows: 5px;
-}
-*/
-
-
-/*
-NOTE: IGNORE THIS PART
- 
-.nav-menu ol li{
-    list-style: none;
-    padding: 5px;
-    margin-top: 5px;
-    text-align: left;
-    color: black;
-}
-.nav-menu ol li a{
-    text-decoration: none;
-}
-.nav-menu ol li a:hover{
-    background-color:  whitesmoke;
-    color: orangered;
-} */
