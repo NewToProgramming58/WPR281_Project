@@ -11,12 +11,14 @@ function LoadUsers(){
 
     // Create Table
     const table = document.createElement("table");
+    table.setAttribute('class', 'MemberTable');
 
     // Create table header row using the extracted headers above
     let tr = table.insertRow(-1); // table row
 
     for (let i = 0; i < col.length; i++) {
         let th = document.createElement("th");      // table header.
+        th.setAttribute('class', 'HeaderColour1');
         th.innerHTML = col[i];
         tr.appendChild(th);
     }
@@ -25,6 +27,15 @@ function LoadUsers(){
     for (let i = 0; i < arrUsers.length; i++) {
   
         tr = table.insertRow(-1);
+        
+        if (i % 2 == 0)
+        {
+            tr.setAttribute('class', 'colour1');
+        }
+        else
+        {
+            tr.setAttribute('class', 'colour2');
+        }
 
         for (key in arrUsers[i])
         {

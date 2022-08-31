@@ -116,9 +116,8 @@ nav:hover{
     background-color: rgb(98, 134, 134);
 }
 .MemberTable{
-    position: relative;
-    margin-right: 240px;
-    margin-bottom: 200px;
+    margin-left: -600px;
+    margin-bottom: 4490px;
     background-color: whitesmoke;
 }
 .MemberTable{
@@ -143,13 +142,25 @@ nav:hover{
     background-color: rgb(189, 189, 189);
 }
 .BugsTable{
-    margin-left: 20px;
-    margin-bottom: 350px;
+    /* margin-left: -100px; */
+    margin-bottom: 300px;
+    margin-left: 90px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: auto;
+    /* position: relative; */
+}
+.BugsTable2{
+    margin-left: 210px;
+    margin-bottom: 3200px;
     border: 1px solid black;
     border-collapse: collapse;
     width: auto;
 }
-.BugsTable th, td{
+.BugsTable3{
+    
+}
+.BugsTable2 th, td{
     padding: 10px;
     text-align: center;
 }
@@ -171,11 +182,11 @@ nav:hover{
 }
 .one{
     display: grid;
-    grid-template-columns: repeat(2,250px);
+    grid-template-columns: repeat(2,280px);
     grid-template-rows: max-content;
     grid-gap: 15px;
-    margin-bottom: 6px;
-    margin-right: 500px;
+    margin-bottom: 4400px;
+    margin-right: 820px;
 }
 
 .field1 ol, .field2 ol{
@@ -207,16 +218,18 @@ nav:hover{
     font-weight: bold;
 }
 .button1{
-    position: relative;
+    /* position: relative; */
     margin-left: 15px;
 }
 .button2{
-    position: relative;
-    margin-left: 25px;
+    /* position: relative; */
+    margin-left: -100px;
 }
 .button3{
-    position: relative;
-    margin-left: 155px;
+    position: absolute;
+    margin-left: 400px;
+    margin-top: 447px;
+    width: 10%;
 }
 .sumTable {
     border: 1px solid black;
@@ -229,7 +242,7 @@ nav:hover{
 }
 
 .sumBtn{
-    margin-left: -10px;
+    margin-left: 200px;
     padding: 0.5em;
     margin-bottom: 20px;
     border-radius: 40px;
@@ -239,13 +252,14 @@ nav:hover{
     font-size: large;
 }
 .in_Progress{
+    margin-left: 200px;
     color: black;
     margin-bottom: 10px;
 }
-.line{
+/* .line{
     border-bottom: 1px solid black;
     width: 750px; 
-}
+} */
 .container_Height{
     height: 2000px;
 }
@@ -269,21 +283,79 @@ nav:hover{
     border-collapse: collapse;
 }
 
+/*Header colour for member table*/
+
+.HeaderColour1{
+
+    background-color: cadetblue;
+    color: white;
+}
+
+/* Bug table position */
+#showBugs{
+    position: absolute;
+    margin-top: 840px;
+    margin-left: -300px;
+}
 
 
+/*Project section styling*/
 
+.ProjectTable{
+    width: 700px;
+    background-color: white;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+.ProjectTable{
+    margin-bottom: 4465px;
+    margin-left: 100px;
+}
+.ProjectTable th{
+    background-color: cadetblue;
+    color: white;
+    height: 40px;
+}
+.TableRowColour{
+    background-color: rgb(185, 185, 185);
+}
+.TableRowColour1{
+    background-color: rgb(218, 216, 216);
+}
 
+/*Form for project*/
 
+.field-one ol{
+    list-style: none;
+}
+.field-one li{
+    margin: 1em;
+}
+.field-one input{
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+}
 
+/*For the buttons*/
 
+.ProjectAddBtn, .ProjectEditBtn, .ProjectRemoveBtn{
+    width: 30%;
+    padding: 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 15px;
+}
 
+/*Aligning of the form*/
 
-
-
-
-
-
-
+.align-Form{
+    margin-left: -400px;
+    margin-bottom: 4400px;
+}
 
 
 

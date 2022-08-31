@@ -8,6 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../Main/MainFormStyle.css">
     <link rel="icon" type="image/x-icon" href="/WPR281_Project-main/Images/bug-solid-24.png">
+    <link rel="icon" type="image/x-icon" href="../Images/bug-solid-24.png">
     <script type="text/javascript" src="../Projects/projectManipulation.js"></script>
 </head>
 <body>
@@ -71,8 +72,57 @@
         </nav>
         <div class="Container">
             <section>
+                <div>
+                    <form id="ProjForm" class="align-Form">
+                        <div>
+                            <fieldset class="field-one">
+                                <ol>
+                                    <li>
+                                        <label for="IssueName">Project ID:</label>
+                                        <input type="text" name="IssueName" id="IssueName">
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <label for="Status">Project Name:</label>
+                                        <input type="text" name="projectName" id="Name" placeholder="e.g. Project 1">
+                                    </li>
+                                    <br>
+                                    <li>            
+                                        <label for="Identifier">Short description:</label>
+                                        <input type="text" name="shortDescription" id="description">
+                                    </li>
+                                </ol>
+                            </fieldset>
+                            <button class="ProjectAddBtn">Add Project</button>
+                            <button class="ProjectEditBtn">Edit Project</button>
+                            <button class="ProjectRemoveBtn">Remove Project</button>
+                        </div>  
+                    </form>
+                </div>
                 <div id="divShowData">
-                    <!-- TABLE -->
+                    <!--TABLE-->
+                    <table class="ProjectTable">
+                        <tr>
+                            <th>ID:</th>
+                            <th>Project Name:</th>
+                            <th>Description:</th>
+                        </tr>
+                        <tr class="TableRowColour1">
+                            <td>1</td>
+                            <td>Fitness App</td>
+                            <td>This is for a fitness center</td>
+                        </tr>
+                        <tr class="TableRowColour">
+                            <td>2</td>
+                            <td>WPR281_Project</td>
+                            <td>This is project that we were supposed to do</td>
+                        </tr>
+                        <tr class="TableRowColour1">
+                            <td>3</td>
+                            <td>Some project man</td>
+                            <td>Random project for testing</td>
+                        </tr>
+                    </table>
                 </div>
             </section>
         </div>

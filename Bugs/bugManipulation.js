@@ -108,7 +108,7 @@ function LoadBugs(){
 
         // Create Table
         const table = document.createElement("table");
-        table.setAttribute('class', 'BugsTable');
+        table.setAttribute('class', 'BugsTable'); //New bug table
 
         // Create table header row using the extracted headers above
         let tr = table.insertRow(-1); // table row
