@@ -106,6 +106,7 @@ nav:hover{
     bottom: 0;
 }
 .Container section{
+    padding-top: 4%;
     height: auto;
     display: flex;
     justify-content: center;
@@ -172,14 +173,6 @@ nav:hover{
 .Green{
     background-color: green;
     color: white;
-}
-.one{
-    display: grid;
-    grid-template-columns: repeat(2,280px);
-    grid-template-rows: max-content;
-    grid-gap: 15px;
-    margin-bottom: 4400px;
-    margin-right: 820px;
 }
 
 .field1 ol, .field2 ol{
